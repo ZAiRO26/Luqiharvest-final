@@ -1,6 +1,6 @@
 import React from "react";
 import AnimatedSection from "../AnimatedSection";
-import { Check, TrendingUp, Globe, Lightbulb, Users, Package, Calendar, ArrowRight, Star } from "lucide-react";
+import { Check, TrendingUp, Globe, Calendar, ArrowRight, Star } from "lucide-react";
 
 const BlogPage = () => {
   const blogPosts = [

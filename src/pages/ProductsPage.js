@@ -1,7 +1,5 @@
-import React, { useState } from "react";
-import AnimatedSection from "../AnimatedSection";
-import { ArrowRight, Star, Check, Package, Leaf } from "lucide-react";
-import { NavLink, useParams, useLocation, Link, useNavigate } from 'react-router-dom';
+import React from "react";
+import { useParams, useNavigate, Link } from 'react-router-dom';
 
 const categories = [
   { key: 'all', label: 'All Products', icon: '🛒' },
@@ -308,7 +306,6 @@ const products = {
 };
 
 export default function ProductsPage() {
-  const location = useLocation();
   const params = useParams();
   const navigate = useNavigate();
   const categoryParam = params.category;

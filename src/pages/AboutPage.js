@@ -1,6 +1,6 @@
 import React from "react";
 import AnimatedSection from "../AnimatedSection";
-import { Award, Globe, Leaf, Users, Target, Heart, CheckCircle, Star } from "lucide-react";
+import { Award, Globe, Leaf, Users, Target, Heart, CheckCircle } from "lucide-react";
 
 const AboutPage = () => {
   const stats = [
