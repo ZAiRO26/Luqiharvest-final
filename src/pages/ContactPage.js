@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AnimatedSection from "../AnimatedSection";
 import { MapPin, Phone, Mail, Clock, Facebook, Instagram } from "lucide-react";
 
 const ContactPage = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -128,7 +132,7 @@ const ContactPage = () => {
                       <h3 className="font-semibold text-gray-900 mb-1">Follow Us on Social Media</h3>
                       <div className="space-y-1">
                         <a 
-                          href="https://www.facebook.com/share/kE6BGPrhHwJpL5yD/?mibextid=qi2Omg" 
+                          href="https://www.facebook.com/share/1CFbUHTfK9/" 
                           target="_blank" 
                           rel="noopener noreferrer"
                           className="text-green-600 hover:text-green-700 flex items-center"
@@ -137,13 +141,22 @@ const ContactPage = () => {
                           Facebook
                         </a>
                         <a 
-                          href="https://www.instagram.com/mangoozz_official?igsh=dmI4eXpuYmlubWFw" 
+                          href="https://www.instagram.com/luqi_harvest?utm_source=qr&igsh=dmI4eXpuYmlubWFw" 
                           target="_blank" 
                           rel="noopener noreferrer"
                           className="text-green-600 hover:text-green-700 flex items-center"
                         >
                           <Instagram className="w-4 h-4 mr-2" />
                           Instagram
+                        </a>
+                        <a 
+                          href="https://youtube.com/@luqi_harvest?si=cYyWkmuJWN3t-jFR" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="text-green-600 hover:text-green-700 flex items-center"
+                        >
+                          <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><polygon points="10,8 16,12 10,16 10,8" fill="#FF0000"/></svg>
+                          YouTube
                         </a>
                       </div>
                     </div>
@@ -260,6 +273,25 @@ const ContactPage = () => {
               </form>
             </div>
           </AnimatedSection>
+        </div>
+      </div>
+
+      {/* Map Section */}
+      <div className="bg-[#f7f5f1] py-16 mt-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center mb-8">Our Locations</h2>
+          <div className="rounded-2xl overflow-hidden shadow-lg bg-white">
+            <iframe
+              title="LUQI HARVEST Location"
+              src="https://www.google.com/maps?q=Innov8+Mantri+Commercio,+Tower+A,+No.51,+5th+Floor,+Bengaluru,+Karnataka,+India+560103&output=embed"
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
         </div>
       </div>
     </div>

@@ -290,7 +290,7 @@ export default function HomePage() {
                   <p className="text-gray-600 mb-4">
                     {product.description}
                   </p>
-                  <Link to={product.link} className="text-orange-600 hover:text-orange-700 font-semibold flex items-center">
+                  <Link to={product.link} className="text-orange-600 hover:text-orange-700 font-semibold flex items-center" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                     Learn More <ArrowRight className="ml-1 w-4 h-4" />
                   </Link>
                 </div>
@@ -361,6 +361,17 @@ export default function HomePage() {
               <p className="text-gray-500 text-lg">We partner with local farmers and manufacturers to promote eco-friendly practices and support sustainable agriculture across our supply chain.</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Call-to-Action Section (below About Us) */}
+      <section className="w-full bg-gradient-to-r from-[#6fc13e] to-[#7ed957] py-24 flex flex-col items-center justify-center relative overflow-hidden">
+        <div className="absolute left-12 top-1/2 -translate-y-1/2 w-60 h-60 bg-white bg-opacity-10 rounded-full" style={{zIndex:1}}></div>
+        <div className="absolute right-12 top-1/2 -translate-y-1/2 w-96 h-96 bg-white bg-opacity-10 rounded-full" style={{zIndex:1}}></div>
+        <div className="relative z-10 flex flex-col items-center justify-center w-full">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white text-center mb-6">Ready to Experience Our Premium Fruit Pulp?</h2>
+          <p className="text-2xl text-white text-center mb-10 max-w-2xl">Contact us today to discuss your requirements or to request samples of our premium fruit pulp products.</p>
+          <Link to="/contact" className="bg-white text-green-600 hover:bg-green-50 font-semibold px-10 py-4 rounded-lg text-xl shadow transition-all">Get in Touch</Link>
         </div>
       </section>
 
