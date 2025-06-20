@@ -1,13 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import AnimatedSection from "../AnimatedSection";
-import { Award, Globe, Leaf, Users, Target, Heart, CheckCircle } from "lucide-react";
+import { Globe, Target, Heart, CheckCircle, Sprout, Cog, Briefcase, Leaf, Award } from "lucide-react";
 
 const AboutPage = () => {
   const stats = [
-    { number: "10+", label: "Years Experience", icon: Award },
-    { number: "50+", label: "Countries Served", icon: Globe },
-    { number: "100%", label: "Natural Products", icon: Leaf },
-    { number: "1000+", label: "Happy Clients", icon: Users }
+    { number: "20+", label: "Years of experience", icon: Sprout },
+    { number: "500+", label: "Employees", icon: Cog },
+    { number: "10+", label: "Processing Lines", icon: Briefcase },
+    { number: "75+", label: "Exporting countries", icon: Globe },
   ];
 
   const values = [
@@ -59,10 +60,10 @@ const AboutPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center">
-              <h1 className="text-5xl lg:text-6xl font-bold mb-6">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
                 About LUQI HARVEST
               </h1>
-              <p className="text-xl lg:text-2xl mb-8 max-w-3xl mx-auto">
+              <p className="text-lg sm:text-xl lg:text-2xl mb-8 max-w-3xl mx-auto">
                 Bringing the finest fruit products from India to the global market since our inception
               </p>
               <div className="flex justify-center">
@@ -79,22 +80,24 @@ const AboutPage = () => {
 
       {/* Stats Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {stats.map((stat, index) => (
-            <AnimatedSection key={index} delay={index * 100}>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <stat.icon className="w-8 h-8 text-green-600" />
+        <div className="bg-white rounded-lg shadow-md">
+          <div className="grid grid-cols-1 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-gray-200">
+            {stats.map((stat, index) => (
+              <AnimatedSection key={index} delay={index * 100}>
+                <div className="p-8 text-center">
+                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <stat.icon className="w-8 h-8 text-green-600" />
+                  </div>
+                  <div className="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
+                    {stat.number}
+                  </div>
+                  <div className="text-gray-600 font-medium">
+                    {stat.label}
+                  </div>
                 </div>
-                <div className="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-gray-600 font-medium">
-                  {stat.label}
-                </div>
-              </div>
-            </AnimatedSection>
-          ))}
+              </AnimatedSection>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -105,7 +108,7 @@ const AboutPage = () => {
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
               Our Story
             </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
               LUQI HARVEST was founded with a passion for bringing the finest fruit products from India to the global market. Located in the heart of Bangalore, our journey began with a focus on producing and trading high-quality mango pulp, utilizing the rich agricultural resources of the region.
             </p>
           </div>
@@ -199,7 +202,7 @@ const AboutPage = () => {
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
                 Our Background & Operations
               </h2>
-              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+              <p className="text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto">
                 LUQI HARVEST is a trusted trader specializing in sourcing and exporting premium fruit pulps, with a focus on mango varieties like Alphonso, Totapuri, and Kesar.
               </p>
             </div>
@@ -269,17 +272,18 @@ const AboutPage = () => {
 
       {/* Call to Action */}
       <AnimatedSection>
-        <div className="bg-gradient-to-r from-green-500 to-yellow-500 rounded-2xl mx-4 sm:mx-8 lg:mx-16 p-8 text-white text-center">
-          <h3 className="text-3xl font-bold mb-4">Ready to Partner with Us?</h3>
-          <p className="text-xl mb-6">
+        <div className="bg-gradient-to-r from-green-500 to-yellow-500 rounded-2xl mx-4 sm:mx-8 lg:mx-16 my-16 p-8 text-white text-center">
+          <h3 className="text-2xl sm:text-3xl font-bold mb-4">Ready to Partner with Us?</h3>
+          <p className="text-lg sm:text-xl mb-6">
             Join us in bringing the finest Indian fruits to global markets
           </p>
-          <button 
-            onClick={() => window.location.href = '/contact'}
-            className="bg-white text-green-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105"
+          <Link 
+            to="/contact" 
+            onClick={() => window.scrollTo(0, 0)}
+            className="bg-white text-green-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 inline-block"
           >
             Get In Touch
-          </button>
+          </Link>
         </div>
       </AnimatedSection>
     </div>

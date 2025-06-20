@@ -4,6 +4,11 @@ import { Link } from 'react-router-dom';
 
 const bannerImages = [
   {
+    title: 'Over 20 Years of Fruit Processing Expertise',
+    subtitle: "Supporting the farmer's network to improve yield and quality.",
+    image: '/banner images/factory banner 0.png',
+  },
+  {
     title: 'Premium Mango Processing',
     subtitle: 'The King of Mangoes - Pure, Natural & Export Quality',
     image: '/banner images/mango banner 1.png',
@@ -110,8 +115,8 @@ export default function HomePage() {
             />
             <div className="absolute inset-0 bg-black bg-opacity-40" />
             <div className="relative z-10 text-center text-white px-4 flex flex-col items-center justify-center h-full">
-              <h1 className="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">{slide.title}</h1>
-              <p className="text-xl md:text-2xl mb-8 font-medium drop-shadow">{slide.subtitle}</p>
+              <h1 className="text-3xl md:text-5xl font-bold mb-4 drop-shadow-lg">{slide.title}</h1>
+              <p className="text-lg md:text-xl mb-8 font-medium drop-shadow">{slide.subtitle}</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/products" className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105">View Products</Link>
                 <Link to="/contact" className="border-2 border-white text-white hover:bg-white hover:text-green-700 px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105">Contact Us</Link>
@@ -138,7 +143,7 @@ export default function HomePage() {
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Premium Fruit Processing & Export
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
               LUQI HARVEST is a Bangalore and Krishnagiri-based company that produces, trades and exports high-quality, natural fruit pulp worldwide.
             </p>
           </div>
@@ -157,7 +162,7 @@ export default function HomePage() {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">Pure & Natural</h3>
-                  <p className="text-gray-600">Made from fully ripened, handpicked fruits with no preservatives</p>
+                  <p className="text-base text-gray-600">Made from fully ripened, handpicked fruits with no preservatives</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
@@ -166,7 +171,7 @@ export default function HomePage() {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">Premium Quality</h3>
-                  <p className="text-gray-600">Varieties include premium Alphonso, Totapuri, and Kesar Mango Pulp</p>
+                  <p className="text-base text-gray-600">Varieties include premium Alphonso, Totapuri, and Kesar Mango Pulp</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
@@ -175,7 +180,7 @@ export default function HomePage() {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">Global Export</h3>
-                  <p className="text-gray-600">Exporting to USA, UAE, Canada, Germany, UK and other international markets</p>
+                  <p className="text-base text-gray-600">Exporting to USA, UAE, Canada, Germany, UK and other international markets</p>
                 </div>
               </div>
             </div>
@@ -195,45 +200,45 @@ export default function HomePage() {
             {/* Card 1 */}
             <div className="relative flex flex-col items-center bg-white border border-green-200 rounded-xl shadow-2xl p-10 min-h-[300px] transition-transform hover:scale-105">
               <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Manufacturing" className="w-24 h-24 mb-4 z-10" />
-              <h3 className="text-2xl font-extrabold text-gray-900 mb-0 z-10 text-center leading-tight">Manufacturing<br/>Process</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-0 z-10 text-center leading-tight">Manufacturing<br/>Process</h3>
             </div>
             {/* Card 2 */}
             <div className="relative flex flex-col items-center bg-white border border-green-200 rounded-xl shadow-2xl p-10 min-h-[300px] transition-transform hover:scale-105">
               <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Global Reach" className="w-24 h-24 mb-4 z-10" />
-              <h3 className="text-2xl font-extrabold text-gray-900 mb-0 z-10 text-center leading-tight">Global Reach</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-0 z-10 text-center leading-tight">Global Reach</h3>
             </div>
             {/* Card 3 */}
             <div className="relative flex flex-col items-center bg-white border border-green-200 rounded-xl shadow-2xl p-10 min-h-[300px] transition-transform hover:scale-105">
               <img src="https://cdn-icons-png.flaticon.com/512/2917/2917995.png" alt="Sustainability" className="w-24 h-24 mb-4 z-10" />
-              <h3 className="text-2xl font-extrabold text-gray-900 mb-0 z-10 text-center leading-tight">Sustainability</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-0 z-10 text-center leading-tight">Sustainability</h3>
             </div>
             {/* Card 4 */}
             <div className="relative flex flex-col items-center bg-white border border-green-200 rounded-xl shadow-2xl p-10 min-h-[300px] transition-transform hover:scale-105">
               <img src="https://cdn-icons-png.flaticon.com/512/1048/1048953.png" alt="Supply Chain" className="w-24 h-24 mb-4 z-10" />
-              <h3 className="text-2xl font-extrabold text-gray-900 mb-0 z-10 text-center leading-tight">Supply chain<br/>Efficiency</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-0 z-10 text-center leading-tight">Supply chain<br/>Efficiency</h3>
             </div>
           </div>
           {/* Stats Row */}
           <div className="flex flex-wrap justify-center items-stretch gap-0 divide-x divide-gray-200 bg-white rounded-xl shadow mt-8 max-w-5xl mx-auto scale-90">
             <div className="flex flex-col items-center flex-1 py-8 px-10">
               <svg className="w-16 h-16 text-green-500 mb-3" fill="none" viewBox="0 0 48 48"><g stroke="currentColor" strokeWidth="2"><circle cx="24" cy="24" r="22"/><path d="M24 32c-4 0-8-2-8-6v-2c0-2 2-4 4-4h8c2 0 4 2 4 4v2c0 4-4 6-8 6z"/><circle cx="24" cy="20" r="4"/><path d="M16 36l2-4m14 4l-2-4"/></g></svg>
-              <span className="text-5xl font-extrabold text-gray-900 flex items-baseline"><AnimatedCounter end={25} className="mr-1" /><span className="text-green-500 text-3xl">+</span></span>
-              <span className="text-xl text-gray-700 font-semibold mt-2">Years of experience</span>
+              <span className="text-4xl font-extrabold text-gray-900 flex items-baseline"><AnimatedCounter end={20} className="mr-1" /><span className="text-green-500 text-3xl">+</span></span>
+              <span className="text-lg text-gray-700 font-semibold mt-2">Years of experience</span>
             </div>
             <div className="flex flex-col items-center flex-1 py-8 px-10">
               <svg className="w-16 h-16 text-green-500 mb-3" fill="none" viewBox="0 0 48 48"><g stroke="currentColor" strokeWidth="2"><circle cx="24" cy="24" r="22"/><circle cx="24" cy="24" r="8"/><circle cx="24" cy="24" r="2"/><path d="M24 16v-6M24 32v6M16 24h-6M32 24h6M18.93 18.93l-4.24-4.24M29.07 29.07l4.24 4.24M18.93 29.07l-4.24 4.24M29.07 18.93l4.24-4.24"/></g></svg>
-              <span className="text-5xl font-extrabold text-gray-900 flex items-baseline"><AnimatedCounter end={500} className="mr-1" /><span className="text-green-500 text-3xl">+</span></span>
-              <span className="text-xl text-gray-700 font-semibold mt-2">Employees</span>
+              <span className="text-4xl font-extrabold text-gray-900 flex items-baseline"><AnimatedCounter end={500} className="mr-1" /><span className="text-green-500 text-3xl">+</span></span>
+              <span className="text-lg text-gray-700 font-semibold mt-2">Employees</span>
             </div>
             <div className="flex flex-col items-center flex-1 py-8 px-10">
               <svg className="w-16 h-16 text-green-500 mb-3" fill="none" viewBox="0 0 48 48"><g stroke="currentColor" strokeWidth="2"><rect x="8" y="16" width="32" height="20" rx="4"/><rect x="16" y="8" width="16" height="8" rx="2"/><path d="M24 16v20"/></g></svg>
-              <span className="text-5xl font-extrabold text-gray-900 flex items-baseline"><AnimatedCounter end={10} className="mr-1" /><span className="text-green-500 text-3xl">+</span></span>
-              <span className="text-xl text-gray-700 font-semibold mt-2">Processing Lines</span>
+              <span className="text-4xl font-extrabold text-gray-900 flex items-baseline"><AnimatedCounter end={10} className="mr-1" /><span className="text-green-500 text-3xl">+</span></span>
+              <span className="text-lg text-gray-700 font-semibold mt-2">Processing Lines</span>
             </div>
             <div className="flex flex-col items-center flex-1 py-8 px-10">
               <svg className="w-16 h-16 text-green-500 mb-3" fill="none" viewBox="0 0 48 48"><g stroke="currentColor" strokeWidth="2"><rect x="8" y="16" width="32" height="20" rx="4"/><path d="M24 16v20"/><path d="M16 24h16"/><path d="M12 36l24-24"/></g></svg>
-              <span className="text-5xl font-extrabold text-gray-900 flex items-baseline"><AnimatedCounter end={75} className="mr-1" /><span className="text-green-500 text-3xl">+</span></span>
-              <span className="text-xl text-gray-700 font-semibold mt-2">Exporting countries</span>
+              <span className="text-4xl font-extrabold text-gray-900 flex items-baseline"><AnimatedCounter end={75} className="mr-1" /><span className="text-green-500 text-3xl">+</span></span>
+              <span className="text-lg text-gray-700 font-semibold mt-2">Exporting countries</span>
             </div>
           </div>
         </div>
@@ -246,7 +251,7 @@ export default function HomePage() {
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Our Premium Products
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-base sm:text-lg text-gray-600">
               Quality & Flavor in Every Bite
             </p>
           </div>
@@ -287,7 +292,7 @@ export default function HomePage() {
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
                     {product.title}
                   </h3>
-                  <p className="text-gray-600 mb-4">
+                  <p className="text-base text-gray-600 mb-4">
                     {product.description}
                   </p>
                   <Link to={product.link} className="text-orange-600 hover:text-orange-700 font-semibold flex items-center" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
@@ -307,7 +312,7 @@ export default function HomePage() {
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Quality Certifications
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-base sm:text-lg text-gray-600">
               Meeting International Standards
             </p>
           </div>
@@ -329,9 +334,9 @@ export default function HomePage() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">ABOUT US</h2>
+            <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">ABOUT US</h2>
             <div className="w-24 h-1 bg-green-500 mx-auto mb-6 rounded-full" />
-            <p className="text-xl text-gray-500 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-500 max-w-3xl mx-auto">
               A premium fruit pulp producer and exporter dedicated to bringing the authentic taste of Indian fruits to global markets
             </p>
           </div>
@@ -341,24 +346,24 @@ export default function HomePage() {
               <div className="bg-green-400 rounded-full w-16 h-16 flex items-center justify-center mb-6">
                 <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="10" rx="2" stroke="currentColor" strokeWidth="2"/><rect x="8" y="3" width="8" height="4" rx="1" stroke="currentColor" strokeWidth="2"/></svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Quality Products</h3>
-              <p className="text-gray-500 text-lg">Our products are made from fully ripened, handpicked fruits with no artificial colors or preservatives, ensuring premium quality and authentic taste.</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Quality Products</h3>
+              <p className="text-base text-gray-500">Our products are made from fully ripened, handpicked fruits with no artificial colors or preservatives, ensuring premium quality and authentic taste.</p>
             </div>
             {/* Card 2 */}
             <div className="bg-white rounded-2xl shadow-lg p-10 flex flex-col items-start">
               <div className="bg-green-400 rounded-full w-16 h-16 flex items-center justify-center mb-6">
                 <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/><path d="M2 12h20" stroke="currentColor" strokeWidth="2"/></svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Global Reach</h3>
-              <p className="text-gray-500 text-lg">We export our products to various countries worldwide, ensuring that people across the globe can enjoy the authentic taste of Indian fruits.</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Global Reach</h3>
+              <p className="text-base text-gray-500">We export our products to various countries worldwide, ensuring that people across the globe can enjoy the authentic taste of Indian fruits.</p>
             </div>
             {/* Card 3 */}
             <div className="bg-white rounded-2xl shadow-lg p-10 flex flex-col items-start">
               <div className="bg-green-400 rounded-full w-16 h-16 flex items-center justify-center mb-6">
                 <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="8" stroke="currentColor" strokeWidth="2"/><path d="M8 12h8M12 8v8" stroke="currentColor" strokeWidth="2"/></svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Sustainable Practices</h3>
-              <p className="text-gray-500 text-lg">We partner with local farmers and manufacturers to promote eco-friendly practices and support sustainable agriculture across our supply chain.</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Sustainable Practices</h3>
+              <p className="text-base text-gray-500">We partner with local farmers and manufacturers to promote eco-friendly practices and support sustainable agriculture across our supply chain.</p>
             </div>
           </div>
         </div>
@@ -366,11 +371,11 @@ export default function HomePage() {
 
       {/* Call-to-Action Section (below About Us) */}
       <section className="w-full bg-gradient-to-r from-[#6fc13e] to-[#7ed957] py-24 flex flex-col items-center justify-center relative overflow-hidden">
-        <div className="absolute left-12 top-1/2 -translate-y-1/2 w-60 h-60 bg-white bg-opacity-10 rounded-full" style={{zIndex:1}}></div>
+        <div className="absolute left-12 top-12 -translate-y-1/2 w-60 h-60 bg-white bg-opacity-10 rounded-full" style={{zIndex:1}}></div>
         <div className="absolute right-12 top-1/2 -translate-y-1/2 w-96 h-96 bg-white bg-opacity-10 rounded-full" style={{zIndex:1}}></div>
         <div className="relative z-10 flex flex-col items-center justify-center w-full">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white text-center mb-6">Ready to Experience Our Premium Fruit Pulp?</h2>
-          <p className="text-2xl text-white text-center mb-10 max-w-2xl">Contact us today to discuss your requirements or to request samples of our premium fruit pulp products.</p>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-white text-center mb-6">Ready to Experience Our Premium Fruit Pulp?</h2>
+          <p className="text-xl text-white text-center mb-10 max-w-2xl">Contact us today to discuss your requirements or to request samples of our premium fruit pulp products.</p>
           <Link to="/contact" className="bg-white text-green-600 hover:bg-green-50 font-semibold px-10 py-4 rounded-lg text-xl shadow transition-all">Get in Touch</Link>
         </div>
       </section>

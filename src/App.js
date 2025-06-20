@@ -8,6 +8,7 @@ import BlogPage from './pages/BlogPage';
 import ContactPage from './pages/ContactPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Chatbot from './components/Chatbot';
 
 function BackToTopButton() {
   const [visible, setVisible] = useState(false);
@@ -70,6 +71,7 @@ function App() {
         </main>
         <BackToTopButton />
         <WhatsAppButton />
+        <Chatbot />
         <Footer />
       </div>
       <style>{`

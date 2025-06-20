@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import AnimatedSection from "../AnimatedSection";
 import { Check, TrendingUp, Globe, Calendar, ArrowRight, Star } from "lucide-react";
 
@@ -260,19 +261,20 @@ const BlogPage = () => {
         </div>
       </div>
 
-      {/* Call to Action */}
+      {/* Newsletter Section */}
       <AnimatedSection>
-        <div className="bg-gradient-to-r from-green-500 to-yellow-500 rounded-2xl mx-4 sm:mx-8 lg:mx-16 p-8 text-white text-center">
-          <h3 className="text-3xl font-bold mb-4">Stay Updated with Industry Trends</h3>
+        <div className="bg-gradient-to-r from-green-500 to-yellow-500 rounded-2xl mx-4 sm:mx-8 lg:mx-16 my-16 p-8 text-white text-center">
+          <h3 className="text-3xl font-bold mb-4">Stay Ahead of the Curve</h3>
           <p className="text-xl mb-6">
-            Subscribe to our newsletter for the latest insights in fruit processing and export industry
+            Subscribe to our newsletter for the latest industry updates and insights.
           </p>
-          <button 
-            onClick={() => window.location.href = '/contact'}
-            className="bg-white text-green-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105"
+          <Link
+            to="/contact"
+            onClick={() => window.scrollTo(0, 0)}
+            className="bg-white text-green-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 inline-block"
           >
             Subscribe Now
-          </button>
+          </Link>
         </div>
       </AnimatedSection>
     </div>

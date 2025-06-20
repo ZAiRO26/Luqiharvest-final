@@ -10,14 +10,14 @@ export default function Footer() {
   return (
     <footer className="bg-[#f7f5f1] text-[#3d372c] py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
           {/* LUQI HARVEST Info */}
-          <div>
+          <div className="flex flex-col items-center md:items-start">
             <div className="text-2xl font-bold mb-4">LUQI HARVEST</div>
             <p className="mb-6 max-w-xs">
               A Bangalore and Krishnagiri-based company that produces, trades, and exports high-quality, natural fruit pulp worldwide.
             </p>
-            <div className="flex space-x-4 text-2xl">
+            <div className="flex space-x-4 text-2xl justify-center md:justify-start">
               <a href="https://www.facebook.com/share/1CFbUHTfK9/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-[#3b5998] transition-colors">
                 <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
               </a>
