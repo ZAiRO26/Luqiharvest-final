@@ -17,7 +17,7 @@ function BackToTopButton() {
     function handleScroll() {
       const scrollY = window.scrollY || window.pageYOffset;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      setVisible(docHeight > 0 && scrollY / docHeight > 0.6);
+      setVisible(docHeight > 0 && scrollY / docHeight > 0.4);
     }
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
