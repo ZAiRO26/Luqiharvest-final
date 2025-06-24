@@ -32,27 +32,48 @@ export default function Header() {
     <header className="bg-white shadow-lg sticky top-0 z-50">
       {/* Top bar */}
       <div className="border-b border-gray-200 py-2">
-        <div className="flex justify-between items-center text-sm text-gray-600 w-full md:w-7/10 mx-auto px-4 sm:px-6 lg:px-8" style={{maxWidth: '70%'}}>
-          <div className="flex items-center space-x-4">
-            <div className="flex items-center">
-              <Phone className="w-4 h-4 mr-1" />
-              <span>+91-81224 29668</span>
+        <div className="w-full md:w-7/10 mx-auto px-4 sm:px-6 lg:px-8" style={{maxWidth: '70%'}}>
+          {/* Mobile: stack and center, Desktop: flex row */}
+          <div className="flex flex-col md:flex-row md:justify-between md:items-center text-sm text-gray-600">
+            <div className="flex flex-col md:flex-row md:items-center md:space-x-4 text-center md:text-left">
+              <div className="flex items-center justify-center md:justify-start">
+                <Phone className="w-4 h-4 mr-1" />
+                <span>+91-81224 29668</span>
+              </div>
+              <div className="flex items-center justify-center md:justify-start mt-1 md:mt-0">
+                <Mail className="w-4 h-4 mr-1" />
+                <span>luqiharvestindia@gmail.com</span>
+              </div>
             </div>
-            <div className="flex items-center">
-              <Mail className="w-4 h-4 mr-1" />
-              <span>luqiharvestindia@gmail.com</span>
+            <div className="flex items-center justify-center md:justify-end space-x-2 mt-1 md:mt-0">
+              <Globe className="w-4 h-4" />
+              <span>Exporting Worldwide</span>
             </div>
-          </div>
-          <div className="flex items-center space-x-2">
-            <Globe className="w-4 h-4" />
-            <span>Exporting Worldwide</span>
           </div>
         </div>
       </div>
       {/* Main navigation */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto flex justify-between items-center py-0" style={{minHeight: '3.6rem'}}>
-          <div className="flex items-center ml-24">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center py-0 md:py-0" style={{minHeight: '3.6rem'}}>
+          {/* Mobile header: logo left, burger icon right */}
+          <div className="w-full flex md:hidden flex-row items-center justify-between pt-2 pb-2 relative">
+            <Link to="/" onClick={scrollToTop} className="flex items-center ml-[-12]">
+              <div className="bg-white rounded-lg p-1">
+                <img src="/logo1.jpg" alt="LUQI HARVEST Logo" className="h-14 w-auto" />
+              </div>
+            </Link>
+            <button
+              className="p-2 rounded-md text-gray-600 hover:text-orange-600 hover:bg-gray-100"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label="Open menu"
+            >
+              <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+          {/* Desktop header: logo left, nav right */}
+          <div className="hidden md:flex items-center" style={{ marginLeft: '8px' }}>
             <Link to="/" onClick={scrollToTop} className="flex items-center mr-6">
               <div className="bg-white rounded-lg p-1">
                 <img src="/logo1.jpg" alt="LUQI HARVEST Logo" className="h-16 w-auto" />
@@ -90,12 +111,6 @@ export default function Header() {
               )
             ))}
           </nav>
-          <button
-            className="md:hidden p-2 rounded-md text-gray-600 hover:text-orange-600 hover:bg-gray-100"
-            onClick={() => setMobileOpen(!mobileOpen)}
-          >
-            <span className="material-icons">menu</span>
-          </button>
         </div>
         {mobileOpen && (
           <nav className="md:hidden border-t border-gray-200 py-4">
