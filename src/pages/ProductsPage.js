@@ -3,304 +3,116 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 
 const categories = [
   { key: 'all', label: 'All Products', icon: '🛒' },
-  { key: 'fruit-pulp', label: 'Fruit Pulp & Puree', icon: '🥭' },
-  { key: 'vegetables', label: 'Premium Vegetables', icon: '🥬' },
-  { key: 'fruit-concentrate', label: 'Fruit Concentrates', icon: '🧃' },
-  { key: 'frozen-fruits', label: 'Frozen Fruits', icon: '❄️' },
-  { key: 'fruit-slices', label: 'Fruit Slices', icon: '🍎' },
+  { key: 'fruits', label: 'Fruits', icon: '🥭' },
+  { key: 'vegetables', label: 'Vegetables', icon: '🥬' },
   { key: 'juice-commodities', label: 'Juice Commodities', icon: '🥤' },
 ];
 
 const products = {
-  "fruit-pulp": [
+  "fruits": [
     {
-      name: "Alphonso Mango Pulp & Puree",
-      description: "The King of Mangoes with rich creamy texture and unparalleled sweetness. The smooth, aromatic pulp makes it a perfect ingredient for beverages, desserts, ice creams, and jams.",
-      image: "/images/products/AS1-Alphanso Mango.jpg",
-      benefits: ["Rich in Vitamins A, C, and E", "High in Antioxidants", "Dietary Fiber", "Low in Fat"],
-      uses: ["Beverages", "Desserts", "Bakery", "Sauces & Jams", "Frozen Treats"],
-      nutritional: "Boosts immunity, promotes skin health, supports collagen formation, fights free radicals, aids digestion, contains potassium and magnesium",
-      rating: 5,
-      featured: true
+      name: "Alphanso Mango",
+      description: "Deep golden color, rich creamy texture, and unparalleled sweetness. Perfect for beverages, desserts, ice creams, and jams.",
+      image: "/images/products/AS1-Alphanso Mango.jpg"
     },
     {
-      name: "Totapuri Mango Pulp & Puree",
-      description: "Vibrant yellow color with distinct tangy taste, perfect for juices, nectars, smoothies, and sauces. Their balanced sweet and sour flavor makes them ideal for various applications.",
-      image: "/images/products/AS2-Totapuri Mango.jpg",
-      benefits: ["Vitamins A & C", "Natural Energy Booster", "High Water Content", "Antioxidants"],
-      uses: ["Beverages", "Ice Creams & Desserts", "Bakery Products", "Dairy Products", "Sauces & Chutneys"],
-      nutritional: "Supports immunity, skin, and vision health, reduces oxidative stress, promotes digestive health, provides quick energy",
-      rating: 5,
-      featured: true
+      name: "Totapuri Mango",
+      description: "Vibrant yellow color with distinct tangy taste, perfect for juices and smoothies.",
+      image: "/images/products/AS2-Totapuri Mango.jpg"
     },
     {
-      name: "Kesar Mango Pulp & Puree",
-      description: "Saffron-like color with fragrant aroma and sweet flavor. Celebrated for their sweet flavor and pulpy texture, making them ideal for desserts, juices, and ice creams.",
-      image: "/images/products/AS3-Kesar Mango.jpg",
-      benefits: ["Vitamin C", "Heart-Healthy Potassium", "Natural Energy", "Low Fat"],
-      uses: ["Beverages", "Desserts", "Bakery Products", "Dairy Industry", "Confectionery"],
-      nutritional: "Boosts immunity, promotes healthy skin, supports eye health, regulates blood pressure, supports heart health",
-      rating: 5
+      name: "Kesar Mango",
+      description: "Saffron-like color with fragrant aroma and sweet flavor.",
+      image: "/images/products/AS3-Kesar Mango.jpg"
     },
     {
-      name: "White Guava Pulp & Puree",
-      description: "Delicate, mildly sweet flavor packed with nutrients. Perfect for juices, smoothies, jams, and desserts with excellent nutritional profile.",
-      image: "/images/products/AS4-White Guava.jpg",
-      benefits: ["Rich in Vitamin C", "High Fiber", "Blood Sugar Control", "Potassium"],
-      uses: ["Beverages", "Desserts", "Bakery Products", "Dairy Industry", "Confectionery"],
-      nutritional: "Promotes healthy vision, skin, and boosts immunity, supports digestion and gut health, helps regulate blood pressure",
-      rating: 5
+      name: "Pink/White Guava",
+      description: "Delicate, mildly sweet flavor packed with nutrients. Available in both pink and white varieties.",
+      image: "/images/products/AS4-White Guava.jpg"
     },
     {
-      name: "Pink Guava Pulp & Puree",
-      description: "Fruitier, tropical taste with excellent nutritional profile. Perfect for juices, smoothies, jams, and desserts with vibrant color and rich flavor.",
-      image: "/images/products/AS5-Pink Guava.jpg",
-      benefits: ["Vitamin A & C", "Antioxidants", "Fiber Rich", "Diabetic-Friendly"],
-      uses: ["Beverages", "Desserts", "Bakery Products", "Dairy Industry", "Confectionery"],
-      nutritional: "Promotes healthy vision, skin, and boosts immunity, fights oxidative stress, supports digestion, low glycemic index",
-      rating: 5
+      name: "Pineapple",
+      description: "Tangy and sweet flavor with refreshing aroma. Perfect for juices and desserts.",
+      image: "/images/products/AS6-Pineapple.jpg"
     },
     {
-      name: "Pineapple Pulp & Puree",
-      description: "Tangy and sweet flavor with refreshing aroma. Extracted from ripe pineapples, perfect for juices, sauces, ice creams, and bakery products.",
-      image: "/images/products/AS6-Pineapple.jpg",
-      benefits: ["Vitamins A & C", "Antioxidants", "Digestive Health", "Bromelain Enzyme"],
-      uses: ["Beverages", "Desserts", "Bakery Products", "Sauces", "Frozen Treats"],
-      nutritional: "Supports immunity and skin health, fights free radicals, aids digestion, contains bromelain enzyme for protein digestion",
-      rating: 5
+      name: "Sapota(Chikku)",
+      description: "Rich, malty flavor and soft, grainy texture. Naturally sweet and packed with nutrients.",
+      image: "/images/products/AS7-Sapota(Chikku).jpg"
     },
     {
-      name: "Sapota(Chikku) Pulp & Puree",
-      description: "Rich, malty flavor and soft, grainy texture. Naturally sweet and packed with nutrients, perfect for milkshakes, smoothies, and desserts.",
-      image: "/images/products/AS7-Sapota(Chikku).jpg",
-      benefits: ["Natural Sugars", "High in Fiber", "Vitamins A & C", "Rich in Minerals"],
-      uses: ["Beverages", "Desserts", "Bakery Products", "Dairy Industry", "Confectionery"],
-      nutritional: "Provides instant energy, promotes digestion, boosts immunity, improves skin health, supports blood circulation",
-      rating: 5
-    },
-    {
-      name: "Jackfruit Pulp & Puree",
-      description: "Tropical sweet taste and fibrous texture. Used in jams, smoothies, candies, and traditional desserts with rich flavor and nutritional benefits.",
-      image: "/images/products/AS8-Jackfruit.jpg",
-      benefits: ["Rich in Vitamins & Minerals", "High in Fiber", "Antioxidants", "Low in Fat"],
-      uses: ["Beverages", "Desserts", "Bakery Products", "Dairy Industry", "Confectionery"],
-      nutritional: "Great source of vitamin C, A, potassium, magnesium, and calcium, supports digestion, promotes satiety, regulates blood sugar",
-      rating: 5
+      name: "Jackfruit",
+      description: "Tropical sweet taste and fibrous texture. Used in jams, smoothies, and traditional desserts.",
+      image: "/images/products/AS8-Jackfruit.jpg"
     }
   ],
   "vegetables": [
     {
       name: "Gherkins",
-      description: "Small cucumbers with tangy flavor, perfect for pickling. Known for their tangy flavor and crisp texture, ideal for salads, sandwiches, and snacks.",
-      image: "/images/products/AS15-Gharkins.jpg",
-      benefits: ["Rich in Vitamin K", "Low Calories", "High Water Content", "Antioxidants"],
-      uses: ["Pickles", "Salads", "Snacks", "Sandwiches & Burgers"],
-      nutritional: "Essential for bone health and blood clotting, great for weight-conscious individuals, helps in hydration, supports skin health",
-      rating: 5
+      description: "Small cucumbers with tangy flavor, perfect for pickling.",
+      image: "/images/products/AS15-Gharkins.jpg"
     },
     {
       name: "Baby Corn",
-      description: "Sweet and tender corn harvested early. Offers a mild, sweet flavor and tender texture, popular in stir-fries, salads, and soups.",
-      image: "/images/products/AS16-Baby Corn.jpg",
-      benefits: ["High Fiber", "Vitamins A & C", "Low Calories", "Natural Energy"],
-      uses: ["Stir-Fries & Soups", "Salads", "Side Dishes"],
-      nutritional: "Supports digestion and promotes gut health, helps boost immunity, maintains healthy skin and vision, ideal for weight management",
-      rating: 5
+      description: "Sweet and tender corn harvested early. Popular in stir-fries, salads, and soups.",
+      image: "/images/products/AS16-Baby Corn.jpg"
     },
     {
-      name: "Sweet Corn",
-      description: "Natural sweetness with satisfying crunch. Whether boiled, grilled, or used in salads, this vegetable brings joy to any dish.",
-      image: "/images/products/AS16-Baby Corn.jpg",
-      benefits: ["High Fiber", "Antioxidants", "Low Fat", "Vitamin A & C"],
-      uses: ["Grilled & Boiled", "Salads & Soups", "Snacks"],
-      nutritional: "Aids in digestion and promotes healthy bowel movements, packed with antioxidants to reduce oxidative stress, supports immune health",
-      rating: 5
+      name: "Tomato Paste",
+      description: "Concentrated tomato product for culinary applications. Perfect for sauces and soups.",
+      image: "/images/products/AS9-Tomato.jpg"
     },
     {
-      name: "Jalapenos",
-      description: "Medium-sized chili peppers with moderate heat. Add a spicy kick to a variety of dishes, including salsas, sauces, and tacos.",
-      image: "/images/products/AS10-Green Chilli.jpg",
-      benefits: ["Vitamin C Rich", "Capsaicin", "Antioxidants", "Digestive Health"],
-      uses: ["Salsas & Sauces", "Toppings", "Pickled"],
-      nutritional: "Helps enhance immunity and promote healthy skin, can boost metabolism and help with weight loss, protects cells from damage"
+      name: "Tamarind Paste",
+      description: "Tangy and flavorful paste used in a variety of dishes.",
+      image: "/images/products/AS12-Tamarind.jpg"
     },
     {
-      name: "Chili Peppers",
-      description: "Various sizes, shapes, and heat levels, adding bold flavors and heat to your favorite dishes. From mild to fiery hot, chili peppers bring warmth to any recipe.",
-      image: "/images/products/AS11-Red Chilli.jpg",
-      benefits: ["Rich in Vitamin C", "Capsaicin", "Anti-Inflammatory", "Supports Digestion"],
-      uses: ["Spicy Sauces & Dips", "Curry & Stews", "Pickled"],
-      nutritional: "Boosts immunity and enhances skin health, stimulates metabolism and can help burn fat, reduces inflammation in the body"
+      name: "Ginger Paste",
+      description: "Aromatic and spicy paste used for flavoring dishes.",
+      image: "/images/products/AS13-Ginger.jpg"
     },
     {
-      name: "Green Beans",
-      description: "Healthy, versatile vegetable with a mild flavor and crunchy texture. Perfect for steaming, sautéing, or adding to soups.",
-      image: "/images/products/AS14-Garlic.jpg",
-      benefits: ["High Fiber", "Vitamins A & C", "Low Calories", "Minerals"],
-      uses: ["Side Dishes", "Soups & Casseroles", "Salads"],
-      nutritional: "Helps regulate digestion and maintain a healthy gut, supports eye health and boosts immunity, good source of folate and iron"
+      name: "Garlic Paste",
+      description: "Pungent and flavorful paste used in many cuisines.",
+      image: "/images/products/AS14-Garlic.jpg"
     },
     {
-      name: "French Beans",
-      description: "Thinner and more tender than regular green beans. Known for their delicate texture and fine flavor, popular in gourmet cooking.",
-      image: "/images/products/AS14-Garlic.jpg",
-      benefits: ["Rich in Fiber", "Vitamins A & C", "Low in Calories", "Rich in Folate"],
-      uses: ["Gourmet Side Dishes", "Salads & Soups", "Stir-Fries"],
-      nutritional: "Promotes healthy digestion and prevents constipation, boosts immunity and maintains healthy skin, essential for cell growth"
-    }
-  ],
-  "fruit-concentrate": [
-    {
-      name: "Totapuri Mango Concentrate",
-      description: "Concentrated mango flavor for industrial use. Perfect for beverages, sauces, and food processing applications.",
-      image: "/images/products/AS2-Totapuri Mango.jpg",
-      benefits: ["Concentrated Flavor", "Long Shelf Life", "Versatile Use", "Cost Effective"],
-      uses: ["Beverages", "Food Processing", "Sauces", "Industrial Applications"],
-      rating: 5
+      name: "Green Chilly Paste",
+      description: "Spicy paste made from green chillies, adds heat to dishes.",
+      image: "/images/products/AS10-Green Chilli.jpg"
     },
     {
-      name: "Totapuri Mango Sulphate",
-      description: "Preserved mango concentrate with extended shelf life. Ideal for long-term storage and industrial applications.",
-      image: "/images/products/AS2-Totapuri Mango.jpg",
-      benefits: ["Extended Shelf Life", "Preserved Quality", "Industrial Grade", "Cost Effective"],
-      uses: ["Industrial Processing", "Long-term Storage", "Export Markets"]
-    },
-    {
-      name: "White Guava Concentrate",
-      description: "Pure guava concentrate with authentic taste. Perfect for beverages, desserts, and food processing applications.",
-      image: "/images/products/AS4-White Guava.jpg",
-      benefits: ["Rich Flavor", "High Vitamin C", "Natural", "Premium Quality"],
-      uses: ["Beverages", "Desserts", "Food Processing", "Export Markets"],
-      rating: 5
-    },
-    {
-      name: "Pink Guava Concentrate",
-      description: "Vibrant pink guava concentrate with rich flavor. Ideal for colorful beverages and premium food applications.",
-      image: "/images/products/AS5-Pink Guava.jpg",
-      benefits: ["Vibrant Color", "Rich Flavor", "High Nutrients", "Premium Quality"],
-      uses: ["Beverages", "Desserts", "Food Processing", "Premium Applications"]
-    },
-    {
-      name: "Tomato Paste and Puree",
-      description: "Concentrated tomato products for culinary applications. Perfect for sauces, soups, and food processing.",
-      image: "/images/products/AS9-Tomato.jpg",
-      benefits: ["Rich Flavor", "High Lycopene", "Versatile", "Long Shelf Life"],
-      uses: ["Sauces", "Soups", "Food Processing", "Culinary Applications"]
-    }
-  ],
-  "frozen-fruits": [
-    {
-      name: "Frozen Alphonso Mango",
-      description: "Premium mango pieces preserved at peak freshness. Retains all nutritional value and flavor for year-round availability.",
-      image: "/images/products/FZ1-Alphanso Mango.jpg",
-      benefits: ["Retains Nutrients", "Long Storage", "Convenient", "Premium Quality"],
-      uses: ["Smoothies", "Desserts", "Beverages", "Direct Consumption"],
-      rating: 5
-    },
-    {
-      name: "Frozen Totapuri Mango",
-      description: "Flash-frozen Totapuri mango maintaining nutritional value. Perfect for industrial and retail applications.",
-      image: "/images/products/FZ2-Totapuri Mango.jpg",
-      benefits: ["Extended Shelf Life", "Quality Preserved", "Convenient", "Industrial Grade"],
-      uses: ["Food Processing", "Beverages", "Desserts", "Export Markets"]
-    },
-    {
-      name: "Frozen Pineapple",
-      description: "Sweet and tangy frozen pineapple pieces. Perfect for tropical beverages and desserts.",
-      image: "/images/products/FZ6-Pineapple.jpg",
-      benefits: ["Retains Flavor", "Long Storage", "Convenient", "Nutrient Rich"],
-      uses: ["Beverages", "Desserts", "Smoothies", "Direct Consumption"],
-      rating: 5
-    },
-    {
-      name: "Frozen Pink Guava",
-      description: "Vibrant pink guava pieces preserved at peak freshness. Ideal for colorful beverages and desserts.",
-      image: "/images/products/FZ5-Pink Guava.jpg",
-      benefits: ["Color Preserved", "Nutrient Rich", "Long Storage", "Premium Quality"],
-      uses: ["Beverages", "Desserts", "Smoothies", "Premium Applications"]
-    },
-    {
-      name: "Frozen White Guava",
-      description: "Delicate white guava pieces with mild sweetness. Perfect for subtle flavored applications.",
-      image: "/images/products/FZ4-White Guava.jpg",
-      benefits: ["Mild Flavor", "Nutrient Rich", "Long Storage", "Versatile"],
-      uses: ["Beverages", "Desserts", "Smoothies", "Food Processing"]
-    },
-    {
-      name: "Frozen Sapota (Chikku)",
-      description: "Rich and malty frozen sapota pieces. Perfect for traditional desserts and beverages.",
-      image: "/images/products/FZ7-Sapota(Chikku).jpg",
-      benefits: ["Rich Flavor", "Nutrient Dense", "Long Storage", "Traditional Use"],
-      uses: ["Traditional Desserts", "Beverages", "Smoothies", "Cultural Applications"]
-    },
-    {
-      name: "Frozen Jack Fruit",
-      description: "Tropical sweet jackfruit pieces preserved at peak freshness. Ideal for exotic desserts and beverages.",
-      image: "/images/products/FZ8-Jackfruit.jpg",
-      benefits: ["Tropical Flavor", "Nutrient Rich", "Long Storage", "Exotic Appeal"],
-      uses: ["Exotic Desserts", "Beverages", "Smoothies", "Premium Applications"]
-    },
-    {
-      name: "Tender Coconut Preparations (Malai)",
-      description: "Fresh tender coconut meat preserved for extended use. Perfect for traditional and modern applications.",
-      image: "/images/products/FZ8-Jackfruit.jpg",
-      benefits: ["Fresh Taste", "Nutrient Rich", "Traditional", "Versatile"],
-      uses: ["Traditional Desserts", "Beverages", "Modern Cuisine", "Health Drinks"]
-    }
-  ],
-  "fruit-slices": [
-    {
-      name: "Alphonso Mango Slices and Dice",
-      description: "Premium Alphonso mango cut into perfect slices and dice. Ideal for garnishing, desserts, and premium applications.",
-      image: "/images/products/AS1-Alphanso Mango.jpg",
-      benefits: ["Premium Quality", "Perfect Cut", "Versatile", "Garnish Ready"],
-      uses: ["Garnishing", "Desserts", "Premium Dishes", "Direct Consumption"],
-      rating: 5
-    },
-    {
-      name: "Totapuri Mango Dice and Chunks",
-      description: "Tangy Totapuri mango cut into uniform dice and chunks. Perfect for beverages, desserts, and food processing.",
-      image: "/images/products/AS2-Totapuri Mango.jpg",
-      benefits: ["Uniform Cut", "Tangy Flavor", "Versatile", "Processing Ready"],
-      uses: ["Beverages", "Desserts", "Food Processing", "Industrial Applications"]
-    },
-    {
-      name: "Pineapple Slices and Tidbits",
-      description: "Sweet and tangy pineapple cut into slices and tidbits. Perfect for garnishing and tropical applications.",
-      image: "/images/products/AS6-Pineapple.jpg",
-      benefits: ["Tropical Flavor", "Perfect Cut", "Versatile", "Garnish Ready"],
-      uses: ["Garnishing", "Tropical Dishes", "Beverages", "Direct Consumption"]
-    },
-    {
-      name: "Pink Guava Slices and Dice",
-      description: "Vibrant pink guava cut into slices and dice. Ideal for colorful applications and premium dishes.",
-      image: "/images/products/AS5-Pink Guava.jpg",
-      benefits: ["Vibrant Color", "Perfect Cut", "Premium Quality", "Versatile"],
-      uses: ["Premium Dishes", "Colorful Applications", "Garnishing", "Direct Consumption"]
+      name: "Red Chilly Paste",
+      description: "Hot and vibrant paste made from red chillies.",
+      image: "/images/products/AS11-Red Chilli.jpg"
     }
   ],
   "juice-commodities": [
     {
       name: "Mango Juice",
-      description: "Pure and natural mango juice extracted from premium mango varieties. Perfect for direct consumption and beverage applications.",
-      image: "/images/products/SJ1-Mango Juice.jpg",
-      benefits: ["Pure Natural", "Rich Flavor", "Nutrient Dense", "Versatile"],
-      uses: ["Direct Consumption", "Beverages", "Smoothies", "Cocktails"],
-      rating: 5
+      description: "Refreshing juice made from ripe mangoes.",
+      image: "/images/products/SJ1-Mango Juice.jpg"
     },
     {
       name: "Guava Juice",
-      description: "Fresh guava juice with authentic taste and rich nutrients. Perfect for health drinks and tropical beverages.",
-      image: "/images/products/SJ2-Guava Juice.jpg",
-      benefits: ["Authentic Taste", "Rich Nutrients", "Health Benefits", "Tropical Flavor"],
-      uses: ["Health Drinks", "Tropical Beverages", "Smoothies", "Direct Consumption"]
+      description: "Delicious juice made from fresh guavas.",
+      image: "/images/products/SJ2-Guava Juice.jpg"
+    },
+    {
+      name: "Lemon Juice",
+      description: "Tangy and zesty juice made from lemons.",
+      image: "/images/products/SJ3-Lemon Juice.jpg"
+    },
+    {
+      name: "Pineapple Juice",
+      description: "Sweet and tangy juice made from pineapples.",
+      image: "/images/products/SJ4-Pineapple Juice.jpg"
     },
     {
       name: "Lychee Juice",
-      description: "Exotic lychee juice with unique floral taste. Perfect for premium beverages and exotic applications.",
-      image: "/images/products/SJ5-Lychee Juice.jpg",
-      benefits: ["Exotic Flavor", "Unique Taste", "Premium Quality", "Versatile"],
-      uses: ["Premium Beverages", "Exotic Applications", "Cocktails", "Direct Consumption"]
+      description: "Exotic and sweet juice made from lychees.",
+      image: "/images/products/SJ5-Lychee Juice.jpg"
     }
   ]
 };
@@ -358,28 +170,139 @@ export default function ProductsPage() {
       {/* Product Grid */}
       <div className="max-w-7xl mx-auto px-4 pb-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {currentProducts.map((product, idx) => (
+          {currentProducts.map((product, idx) => {
+            let detailLink = null;
+            // Fruits
+            if (currentCategory === 'fruits' || (currentCategory === 'all' && products['fruits'].some(f => f.name === product.name))) {
+              switch (product.name) {
+                case 'Alphanso Mango':
+                  detailLink = '/products/fruit-detail/alphonso-mango';
+                  break;
+                case 'Totapuri Mango':
+                  detailLink = '/products/fruit-detail/totapuri-mango';
+                  break;
+                case 'Kesar Mango':
+                  detailLink = '/products/fruit-detail/kesar-mango';
+                  break;
+                case 'Pink/White Guava':
+                  detailLink = '/products/fruit-detail/guava';
+                  break;
+                case 'Sapota(Chikku)':
+                  detailLink = '/products/fruit-detail/sapota';
+                  break;
+                case 'Jackfruit':
+                  detailLink = '/products/fruit-detail/jackfruit';
+                  break;
+                case 'Pineapple':
+                  detailLink = '/products/fruit-detail/pineapple';
+                  break;
+                default:
+                  detailLink = null;
+              }
+            }
+            // Vegetables
+            else if (currentCategory === 'vegetables' || (currentCategory === 'all' && products['vegetables'].some(f => f.name === product.name))) {
+              switch (product.name) {
+                case 'Gherkins':
+                  detailLink = '/products/vegetables/gherkins';
+                  break;
+                case 'Baby Corn':
+                  detailLink = '/products/vegetables/baby-corn';
+                  break;
+                case 'Tomato Paste':
+                  detailLink = '/products/vegetables/tomato-paste';
+                  break;
+                case 'Tamarind Paste':
+                  detailLink = '/products/vegetables/tamarind-paste';
+                  break;
+                case 'Ginger Paste':
+                  detailLink = '/products/vegetables/ginger-paste';
+                  break;
+                case 'Garlic Paste':
+                  detailLink = '/products/vegetables/garlic-paste';
+                  break;
+                case 'Green Chilly Paste':
+                  detailLink = '/products/vegetables/green-chilly-paste';
+                  break;
+                case 'Red Chilly Paste':
+                  detailLink = '/products/vegetables/red-chilly-paste';
+                  break;
+                default:
+                  detailLink = null;
+              }
+            }
+            // Juice Commodities
+            else if (currentCategory === 'juice-commodities' || (currentCategory === 'all' && products['juice-commodities'].some(f => f.name === product.name))) {
+              switch (product.name) {
+                case 'Mango Juice':
+                  detailLink = '/products/juice-commodities/mango-juice';
+                  break;
+                case 'Guava Juice':
+                  detailLink = '/products/juice-commodities/guava-juice';
+                  break;
+                case 'Lemon Juice':
+                  detailLink = '/products/juice-commodities/lemon-juice';
+                  break;
+                case 'Pineapple Juice':
+                  detailLink = '/products/juice-commodities/pineapple-juice';
+                  break;
+                case 'Lychee Juice':
+                  detailLink = '/products/juice-commodities/lychee-juice';
+                  break;
+                default:
+                  detailLink = null;
+              }
+            }
+            return (
             <div
               key={idx}
               className="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden"
             >
+                {detailLink ? (
+                  <Link to={detailLink}>
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-48 object-contain bg-white cursor-pointer"
+                    />
+                  </Link>
+                ) : (
               <img
                 src={product.image}
                 alt={product.name}
-                className="w-full h-48 object-cover"
+                    className="w-full h-48 object-contain bg-white"
               />
+                )}
               <div className="p-4">
-                <h3 className="text-lg font-bold mb-2">{product.name}</h3>
+                  <h3 className="text-lg font-bold mb-2">
+                    {detailLink ? (
+                      <Link to={detailLink} className="hover:underline text-black">
+                        {product.name}
+                      </Link>
+                    ) : (
+                      product.name
+                    )}
+                  </h3>
                 <p className="text-gray-600 mb-4">{product.description}</p>
+                  {detailLink ? (
+                    <Link
+                      to={detailLink}
+                      className="bg-orange-600 text-white px-4 py-2 rounded hover:bg-orange-700 transition inline-block"
+                    >
+                      View Details
+                    </Link>
+                  ) : (
                 <button
                   className="bg-orange-600 text-white px-4 py-2 rounded hover:bg-orange-700 transition"
                   onClick={() => navigate('/contact')}
                 >
                   Get Quote
                 </button>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 

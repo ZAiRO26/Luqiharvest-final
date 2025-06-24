@@ -9,6 +9,26 @@ import ContactPage from './pages/ContactPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Chatbot from './components/Chatbot';
+import AlphonsoMangoDetailPage from './pages/products/fruit-detail/AlphonsoMangoDetailPage';
+import TotapuriMangoDetailPage from './pages/products/fruit-detail/TotapuriMangoDetailPage';
+import KesarMangoDetailPage from './pages/products/fruit-detail/KesarMangoDetailPage';
+import GuavaDetailPage from './pages/products/fruit-detail/GuavaDetailPage';
+import SapotaDetailPage from './pages/products/fruit-detail/SapotaDetailPage';
+import JackfruitDetailPage from './pages/products/fruit-detail/JackfruitDetailPage';
+import PineappleDetailPage from './pages/products/fruit-detail/PineappleDetailPage';
+import GherkinsDetailPage from './pages/products/vegetables/GherkinsDetailPage';
+import BabyCornDetailPage from './pages/products/vegetables/BabyCornDetailPage';
+import TomatoPasteDetailPage from './pages/products/vegetables/TomatoPasteDetailPage';
+import TamarindPasteDetailPage from './pages/products/vegetables/TamarindPasteDetailPage';
+import GingerPasteDetailPage from './pages/products/vegetables/GingerPasteDetailPage';
+import GarlicPasteDetailPage from './pages/products/vegetables/GarlicPasteDetailPage';
+import GreenChillyPasteDetailPage from './pages/products/vegetables/GreenChillyPasteDetailPage';
+import RedChillyPasteDetailPage from './pages/products/vegetables/RedChillyPasteDetailPage';
+import MangoJuiceDetailPage from './pages/products/juice-commodities/MangoJuiceDetailPage';
+import GuavaJuiceDetailPage from './pages/products/juice-commodities/GuavaJuiceDetailPage';
+import LemonJuiceDetailPage from './pages/products/juice-commodities/LemonJuiceDetailPage';
+import PineappleJuiceDetailPage from './pages/products/juice-commodities/PineappleJuiceDetailPage';
+import LycheeJuiceDetailPage from './pages/products/juice-commodities/LycheeJuiceDetailPage';
 
 function BackToTopButton() {
   const [visible, setVisible] = useState(false);
@@ -64,6 +84,26 @@ function App() {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/products" element={<ProductsPage />} />
             <Route path="/products/:category" element={<ProductsPage />} />
+            <Route path="/products/fruit-detail/alphonso-mango" element={<AlphonsoMangoDetailPage />} />
+            <Route path="/products/fruit-detail/totapuri-mango" element={<TotapuriMangoDetailPage />} />
+            <Route path="/products/fruit-detail/kesar-mango" element={<KesarMangoDetailPage />} />
+            <Route path="/products/fruit-detail/guava" element={<GuavaDetailPage />} />
+            <Route path="/products/fruit-detail/sapota" element={<SapotaDetailPage />} />
+            <Route path="/products/fruit-detail/jackfruit" element={<JackfruitDetailPage />} />
+            <Route path="/products/fruit-detail/pineapple" element={<PineappleDetailPage />} />
+            <Route path="/products/vegetables/gherkins" element={<GherkinsDetailPage />} />
+            <Route path="/products/vegetables/baby-corn" element={<BabyCornDetailPage />} />
+            <Route path="/products/vegetables/tomato-paste" element={<TomatoPasteDetailPage />} />
+            <Route path="/products/vegetables/tamarind-paste" element={<TamarindPasteDetailPage />} />
+            <Route path="/products/vegetables/ginger-paste" element={<GingerPasteDetailPage />} />
+            <Route path="/products/vegetables/garlic-paste" element={<GarlicPasteDetailPage />} />
+            <Route path="/products/vegetables/green-chilly-paste" element={<GreenChillyPasteDetailPage />} />
+            <Route path="/products/vegetables/red-chilly-paste" element={<RedChillyPasteDetailPage />} />
+            <Route path="/products/juice-commodities/mango-juice" element={<MangoJuiceDetailPage />} />
+            <Route path="/products/juice-commodities/guava-juice" element={<GuavaJuiceDetailPage />} />
+            <Route path="/products/juice-commodities/lemon-juice" element={<LemonJuiceDetailPage />} />
+            <Route path="/products/juice-commodities/pineapple-juice" element={<PineappleJuiceDetailPage />} />
+            <Route path="/products/juice-commodities/lychee-juice" element={<LycheeJuiceDetailPage />} />
             <Route path="/quality" element={<QualityPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/contact" element={<ContactPage />} />

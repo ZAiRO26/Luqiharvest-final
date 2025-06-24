@@ -56,8 +56,14 @@ const AboutPage = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-green-500 to-yellow-500 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative text-white py-20" style={{
+        backgroundImage: "url('/aboutus.png')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}>
+        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
@@ -272,7 +278,9 @@ const AboutPage = () => {
 
       {/* Call to Action */}
       <AnimatedSection>
-        <div className="bg-gradient-to-r from-green-500 to-yellow-500 rounded-2xl mx-4 sm:mx-8 lg:mx-16 my-16 p-8 text-white text-center">
+        <div className="rounded-2xl mx-4 sm:mx-8 lg:mx-16 my-16 p-8 text-white text-center" style={{
+          backgroundColor: '#4CAF50',
+        }}>
           <h3 className="text-2xl sm:text-3xl font-bold mb-4">Ready to Partner with Us?</h3>
           <p className="text-lg sm:text-xl mb-6">
             Join us in bringing the finest Indian fruits to global markets

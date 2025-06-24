@@ -71,7 +71,7 @@ export default function Footer() {
                 <span>
                   <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><polyline points="22,6 12,13 2,6"/></svg>
                 </span>
-                <span>contact@mangoozz.com</span>
+                <span>luqiharvestindia@gmail.com</span>
               </div>
             </div>
           </div>
