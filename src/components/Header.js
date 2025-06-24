@@ -55,7 +55,7 @@ export default function Header() {
           <div className="flex items-center ml-24">
             <Link to="/" onClick={scrollToTop} className="flex items-center mr-6">
               <div className="bg-white rounded-lg p-1">
-                <img src="/logo-new.jpg" alt="LUQI HARVEST Logo" className="h-16 w-auto" />
+                <img src="/logo1.jpg" alt="LUQI HARVEST Logo" className="h-16 w-auto" />
               </div>
             </Link>
           </div>
