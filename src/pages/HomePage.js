@@ -23,34 +23,7 @@ const bannerImages = [
     subtitle: 'Vibrant, sun-ripened tomatoes processed to international standards',
     image: '/banner images/tomato banner 3.png',
   },
-  {
-    title: 'State-of-the-Art Factory',
-    subtitle: 'Modern facilities ensuring quality and safety at every step',
-    image: '/banner images/factory banner 4.png',
-  },
 ];
-
-// Animated Counter component
-function AnimatedCounter({ end, duration = 1500, className = '', ...props }) {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    let start = 0;
-    const increment = end / (duration / 16);
-    let frame;
-    function animate() {
-      start += increment;
-      if (start < end) {
-        setCount(Math.floor(start));
-        frame = requestAnimationFrame(animate);
-      } else {
-        setCount(end);
-      }
-    }
-    animate();
-    return () => cancelAnimationFrame(frame);
-  }, [end, duration]);
-  return <span className={className} {...props}>{count}</span>;
-}
 
 export default function HomePage() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -150,15 +123,15 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <img
-                src="/images/products/AS2-Totapuri Mango.jpg"
-                alt="Mango Processing"
+                src="/images/global exports.png"
+                alt="Global Exports"
                 className="rounded-lg shadow-lg"
               />
             </div>
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0 w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
-                  <Leaf className="w-6 h-6 text-orange-600" />
+                  <Leaf className="w-6 h-6 text-green-600" />
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">Pure & Natural</h3>
@@ -167,7 +140,7 @@ export default function HomePage() {
               </div>
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0 w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
-                  <Award className="w-6 h-6 text-orange-600" />
+                  <Award className="w-6 h-6 text-green-600" />
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">Premium Quality</h3>
@@ -176,7 +149,7 @@ export default function HomePage() {
               </div>
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0 w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
-                  <Globe className="w-6 h-6 text-orange-600" />
+                  <Globe className="w-6 h-6 text-green-600" />
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">Global Export</h3>
@@ -222,23 +195,39 @@ export default function HomePage() {
           <div className="flex flex-wrap justify-center items-stretch gap-0 divide-x divide-gray-200 bg-white rounded-xl shadow mt-8 max-w-5xl mx-auto scale-90">
             <div className="flex flex-col items-center flex-1 py-8 px-10">
               <svg className="w-16 h-16 text-green-500 mb-3" fill="none" viewBox="0 0 48 48"><g stroke="currentColor" strokeWidth="2"><circle cx="24" cy="24" r="22"/><path d="M24 32c-4 0-8-2-8-6v-2c0-2 2-4 4-4h8c2 0 4 2 4 4v2c0 4-4 6-8 6z"/><circle cx="24" cy="20" r="4"/><path d="M16 36l2-4m14 4l-2-4"/></g></svg>
-              <span className="text-4xl font-extrabold text-gray-900 flex items-baseline"><AnimatedCounter end={20} className="mr-1" /><span className="text-green-500 text-3xl">+</span></span>
-              <span className="text-lg text-gray-700 font-semibold mt-2">Years of experience</span>
+              <div className="text-center">
+                <span className="block text-2xl">
+                  <span className="font-bold">20</span><span className="text-green-500 font-normal">+</span>
+                </span>
+                <span className="block text-xl text-gray-900 mt-1">Years of Industry experts</span>
+              </div>
             </div>
             <div className="flex flex-col items-center flex-1 py-8 px-10">
               <svg className="w-16 h-16 text-green-500 mb-3" fill="none" viewBox="0 0 48 48"><g stroke="currentColor" strokeWidth="2"><circle cx="24" cy="24" r="22"/><circle cx="24" cy="24" r="8"/><circle cx="24" cy="24" r="2"/><path d="M24 16v-6M24 32v6M16 24h-6M32 24h6M18.93 18.93l-4.24-4.24M29.07 29.07l4.24 4.24M18.93 29.07l-4.24 4.24M29.07 18.93l4.24-4.24"/></g></svg>
-              <span className="text-4xl font-extrabold text-gray-900 flex items-baseline"><AnimatedCounter end={500} className="mr-1" /><span className="text-green-500 text-3xl">+</span></span>
-              <span className="text-lg text-gray-700 font-semibold mt-2">Employees</span>
+              <div className="text-center">
+                <span className="block text-2xl">
+                  <span className="font-bold">100</span><span className="text-green-500 font-normal">+</span>
+                </span>
+                <span className="block text-xl text-gray-900 mt-1">Industry Tie ups</span>
+              </div>
             </div>
             <div className="flex flex-col items-center flex-1 py-8 px-10">
               <svg className="w-16 h-16 text-green-500 mb-3" fill="none" viewBox="0 0 48 48"><g stroke="currentColor" strokeWidth="2"><rect x="8" y="16" width="32" height="20" rx="4"/><rect x="16" y="8" width="16" height="8" rx="2"/><path d="M24 16v20"/></g></svg>
-              <span className="text-4xl font-extrabold text-gray-900 flex items-baseline"><AnimatedCounter end={10} className="mr-1" /><span className="text-green-500 text-3xl">+</span></span>
-              <span className="text-lg text-gray-700 font-semibold mt-2">Processing Lines</span>
+              <div className="text-center">
+                <span className="block text-2xl">
+                  <span className="font-bold">10</span><span className="text-green-500 font-normal">+</span>
+                </span>
+                <span className="block text-xl text-gray-900 mt-1">Processing Lines</span>
+              </div>
             </div>
             <div className="flex flex-col items-center flex-1 py-8 px-10">
               <svg className="w-16 h-16 text-green-500 mb-3" fill="none" viewBox="0 0 48 48"><g stroke="currentColor" strokeWidth="2"><rect x="8" y="16" width="32" height="20" rx="4"/><path d="M24 16v20"/><path d="M16 24h16"/><path d="M12 36l24-24"/></g></svg>
-              <span className="text-4xl font-extrabold text-gray-900 flex items-baseline"><AnimatedCounter end={75} className="mr-1" /><span className="text-green-500 text-3xl">+</span></span>
-              <span className="text-lg text-gray-700 font-semibold mt-2">Exporting countries</span>
+              <div className="text-center">
+                <span className="block text-2xl">
+                  <span className="font-bold">75</span><span className="text-green-500 font-normal">+</span>
+                </span>
+                <span className="block text-xl text-gray-900 mt-1">Exporting countries</span>
+              </div>
             </div>
           </div>
         </div>
@@ -261,19 +250,19 @@ export default function HomePage() {
                 title: "Alphonso Mango Pulp",
                 description: "The King of Mangoes with rich creamy texture",
                 image: "/images/products/AS1-Alphanso Mango.jpg",
-                link: "/products/fruit-pulp"
+                link: "/products/fruit-detail/alphonso-mango"
               },
               {
                 title: "Totapuri Mango Pulp",
                 description: "Vibrant yellow color with distinct tangy taste",
                 image: "/images/products/AS2-Totapuri Mango.jpg",
-                link: "/products/fruit-pulp"
+                link: "/products/fruit-detail/totapuri-mango"
               },
               {
                 title: "Guava Pulp",
                 description: "Pink & White varieties packed with nutrients",
                 image: "/images/products/AS4-White Guava.jpg",
-                link: "/products/fruit-pulp"
+                link: "/products/fruit-detail/guava"
               },
               {
                 title: "Premium Vegetables",
@@ -282,24 +271,26 @@ export default function HomePage() {
                 link: "/products/vegetables"
               }
             ].map((product, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105">
-                <img
-                  src={product.image}
-                  alt={product.title}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    {product.title}
-                  </h3>
-                  <p className="text-base text-gray-600 mb-4">
-                    {product.description}
-                  </p>
-                  <Link to={product.link} className="text-orange-600 hover:text-orange-700 font-semibold flex items-center" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                    Learn More <ArrowRight className="ml-1 w-4 h-4" />
-                  </Link>
+              <Link to={product.link} key={index} className="block hover:no-underline" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105">
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    className="w-full h-48 object-contain bg-white"
+                  />
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                      {product.title}
+                    </h3>
+                    <p className="text-base text-gray-600 mb-4">
+                      {product.description}
+                    </p>
+                    <span className="text-orange-600 hover:text-orange-700 font-semibold flex items-center">
+                      Learn More <ArrowRight className="ml-1 w-4 h-4" />
+                    </span>
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -320,7 +311,7 @@ export default function HomePage() {
             {['FSSAI', 'HALAL', 'COA', 'IEC'].map((cert, index) => (
               <div key={index} className="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-all">
                 <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Globe className="w-8 h-8 text-orange-600" />
+                  <Globe className="w-8 h-8 text-green-600" />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900">{cert}</h3>
                 <p className="text-sm text-gray-600 mt-2">Certified</p>
