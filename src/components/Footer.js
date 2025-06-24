@@ -44,11 +44,11 @@ export default function Footer() {
           <div>
             <div className="text-xl font-semibold mb-4">Products</div>
             <ul className="space-y-2">
-              <li><Link to="/products/fruit-pulp" className="hover:underline cursor-pointer" onClick={handleLinkClick}>Fruit Pulp & Puree</Link></li>
-              <li><Link to="/products/fruit-concentrate" className="hover:underline cursor-pointer" onClick={handleLinkClick}>Fruit Concentrate</Link></li>
-              <li><Link to="/products/fruit-slices" className="hover:underline cursor-pointer" onClick={handleLinkClick}>Fruit Slices</Link></li>
-              <li><Link to="/products/frozen-fruits" className="hover:underline cursor-pointer" onClick={handleLinkClick}>Frozen Fruit</Link></li>
-              <li><Link to="/products/vegetables" className="hover:underline cursor-pointer" onClick={handleLinkClick}>Premium Vegetables</Link></li>
+              <li><Link to="/products" className="hover:underline cursor-pointer" onClick={handleLinkClick}>Fruit Pulp & Puree</Link></li>
+              <li><Link to="/products" className="hover:underline cursor-pointer" onClick={handleLinkClick}>Fruit Concentrate</Link></li>
+              <li><Link to="/products" className="hover:underline cursor-pointer" onClick={handleLinkClick}>Fruit Slices</Link></li>
+              <li><Link to="/products" className="hover:underline cursor-pointer" onClick={handleLinkClick}>Frozen Fruit</Link></li>
+              <li><Link to="/products" className="hover:underline cursor-pointer" onClick={handleLinkClick}>Premium Vegetables</Link></li>
             </ul>
           </div>
           {/* Contact Us */}
