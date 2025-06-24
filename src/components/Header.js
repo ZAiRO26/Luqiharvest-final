@@ -51,9 +51,15 @@ export default function Header() {
       </div>
       {/* Main navigation */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="w-full md:w-7/10 mx-auto flex justify-between items-center py-0" style={{maxWidth: '70%', minHeight: '3.6rem'}}>
-          <div />
-          <nav className="hidden md:flex items-center space-x-8 whitespace-nowrap">
+        <div className="max-w-7xl mx-auto flex justify-between items-center py-0" style={{minHeight: '3.6rem'}}>
+          <div className="flex items-center ml-24">
+            <Link to="/" onClick={scrollToTop} className="flex items-center mr-6">
+              <div className="bg-white rounded-lg p-1">
+                <img src="/logo-new.jpg" alt="LUQI HARVEST Logo" className="h-16 w-auto" />
+              </div>
+            </Link>
+          </div>
+          <nav className="hidden md:flex items-center space-x-8 whitespace-nowrap ml-8">
             {navLinks.map(link => (
               link.name === 'Products' ? (
                 <Link
