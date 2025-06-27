@@ -19,7 +19,10 @@ const uses = [
 
 const GherkinsPage = () => (
   <ProductDetailLayout
-    image={process.env.PUBLIC_URL + "/images/products/AS15-Gharkins.jpg"}
+    image={[
+      process.env.PUBLIC_URL + "/images/products/AS15-Gharkins.jpg",
+      process.env.PUBLIC_URL + "/images/products/NT15-Gharkin.jpg"
+    ]}
     name="Gherkins"
     description={description}
     benefits={benefits}
