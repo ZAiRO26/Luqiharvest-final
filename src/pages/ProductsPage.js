@@ -278,7 +278,7 @@ export default function ProductsPage() {
               className="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden"
             >
                 {detailLink ? (
-                  <Link to={detailLink}>
+                  <Link to={detailLink} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                     <img
                       src={product.image}
                       alt={product.name}
@@ -295,7 +295,7 @@ export default function ProductsPage() {
               <div className="p-4">
                   <h3 className="text-lg font-bold mb-2">
                     {detailLink ? (
-                      <Link to={detailLink} className="hover:underline text-black">
+                      <Link to={detailLink} className="hover:underline text-black" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                         {product.name}
                       </Link>
                     ) : (
@@ -307,6 +307,7 @@ export default function ProductsPage() {
                     <Link
                       to={detailLink}
                       className="bg-orange-600 text-white px-4 py-2 rounded hover:bg-orange-700 transition inline-block"
+                      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                     >
                       View Details
                     </Link>

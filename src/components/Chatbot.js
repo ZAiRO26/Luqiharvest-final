@@ -15,6 +15,7 @@ const Chatbot = () => {
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
+  const [lastFollowUpKey, setLastFollowUpKey] = useState(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -33,94 +34,106 @@ const Chatbot = () => {
   // Enhanced predefined responses with follow-up questions
   const botResponses = {
     'products': {
-      text: "Oh, you'll love our product range! 🌱 We're passionate about bringing you the freshest, most delicious produce straight from our farms.\n\n🍎 **Our Premium Fruits:**\n• Alphonso Mangoes - The king of mangoes, sweet and aromatic\n• Totapuri & Kesar Mangoes - Perfect for juices and desserts\n• White & Pink Guava - Rich in vitamin C and antioxidants\n• Pineapple - Sweet and tangy, great for smoothies\n• Sapota (Chikku) - Creamy and naturally sweet\n• Jackfruit - Versatile and nutritious\n\n🥬 **Fresh Vegetables:**\n• Tomatoes - Perfect for salads and cooking\n• Green & Red Chilli - Add spice to your dishes\n• Tamarind - Natural souring agent\n• Ginger & Garlic - Essential for Indian cooking\n• Baby Corn - Tender and sweet\n\n🥤 **Natural Fruit Juices:**\n• Mango Juice - Pure and refreshing\n• Guava Juice - Rich in nutrients\n• Lemon Juice - Perfect detox drink\n• Pineapple Juice - Tropical goodness\n• Lychee Juice - Exotic and sweet\n\nEverything is 100% organic and harvested at peak ripeness! What catches your interest?",
-      followUp: "I'd love to tell you more about our seasonal availability or help you place an order. What would you prefer?",
-      reactions: ['👍', '🍎', '🥬', '🥤']
+      text: `Welcome!\nWe offer a wide range of premium fruit-based products, including:\n\nMango Products:\n- Alphanso Mango Pulp/Puree/Slices\n- Totapuri Mango Pulp/Puree/Slice/Dice\n- Kesar Mango Pulp/Puree/Slice/Dice\n- Totapuri Mango Concentrate\n- Totapuri Mango Sulphate\nOther Fruit Pulp, Slices & Dice:\n- Guava Pulp/Juice/Slices/Dice\n- Pineapple Juice/Slices/Tidbits\n- Sapota (Chikku) Pulp/Pieces\n- Jackfruit Pulp/Pieces\nJuice Commodities:\n- Mango Juice\n- Guava Juice\n- Lemon Juice\n- Pineapple Juice\n- Litchi Juice\nVegetables:\n- Gherkins\n- Baby Corn\n- Tomato Paste\n- Tamarind Paste\n- Ginger Paste\n- Garlic Paste\n- Green Chilli Paste\n- Red Chilli Paste\nAll our products are processed under strict quality standards and are suitable for both domestic and international markets.\nLet us know if you need samples, specifications, or pricing details! Thank You`,
+      followUp: "Would you like to know about packaging, quality, or how to order?",
+      reactions: ['🥭', '🍍', '🥒', '👍']
     },
-    'contact': {
-      text: "Great! I'm here to help you get in touch with our team. Here's how you can reach us:\n\n📞 **Call us:** +91 8122429668\n• We love talking to our customers directly!\n• Best time to call: 8 AM - 6 PM (Mon-Sat)\n\n📧 **Email:** info@luqiharvest.com\n• We respond within 2-3 hours during business days\n• Perfect for detailed inquiries\n\n💬 **WhatsApp:** Just click the WhatsApp button on our website\n• Fastest way to get quick answers\n• We're available even outside business hours\n\n📍 **Visit us:** [Your Company Address]\n• Come see our facility and meet our team\n• We'd love to show you around!\n\nWe're a friendly bunch and always happy to help! 😊",
-      followUp: "Would you like me to help you with placing an order or getting more specific information?",
-      reactions: ['📞', '📧', '💬', '👍']
-    },
-    'about': {
-      text: "I'm so excited to tell you about LUQI HARVEST! 🌿 We're not just another agricultural company - we're a family passionate about bringing you the best nature has to offer.\n\n**Our Story:**\nWe started with a simple dream: to provide families with the freshest, healthiest produce while caring for our planet. Today, we're proud to be one of the leading organic farming companies, serving thousands of happy customers.\n\n**What Makes Us Special:**\n• 🌱 **Organic First:** We never compromise on organic practices\n• 🏆 **Quality Obsessed:** Every product meets our strict standards\n• 💚 **Eco-Friendly:** We farm sustainably for future generations\n• 👨‍🌾 **Expert Farmers:** Decades of farming experience\n• 🚚 **Farm to Table:** Fresh from our fields to your kitchen\n\n**Our Mission:**\nTo nourish families with nature's best while preserving our environment for generations to come.\n\nWe're not just selling produce - we're sharing our passion for healthy living!",
-      followUp: "Would you like to learn about our quality standards or see what makes our products special?",
-      reactions: ['🏆', '🌱', '👍', '💚']
+    'packaging': {
+      text: `Our packaging options include:\n\nOTS Tins/Cans: 450g, 850g, 3.1kgs\nPouch Packaging: 1Kg, 2kgs, 15Kgs & Above\nAseptic Bags Packaging: 100Kgs, 215kgs`,
+      followUp: "Would you like to know about our quality standards or how to order?",
+      reactions: ['📦', '👍']
     },
     'quality': {
-      text: "Quality is everything to us! 🌟 We're absolutely obsessed with delivering the best to our customers.\n\n**Our Quality Promise:**\n✅ **100% Organic:** No harmful chemicals, ever!\n✅ **Fresh Daily:** Harvested same day for maximum freshness\n✅ **Rigorous Testing:** Every batch is quality-checked\n✅ **Certified Organic:** We meet international standards\n✅ **Sustainable Farming:** Caring for soil and environment\n✅ **Regular Audits:** Third-party quality verification\n✅ **Food Safety:** HACCP certified processes\n\n**What This Means for You:**\n• 🍎 Fruits that taste like they should - naturally sweet and flavorful\n• 🥬 Vegetables packed with nutrients and freshness\n• 🥤 Juices that are pure and natural\n• 💚 Peace of mind knowing your family eats the best\n\nWe believe you deserve nothing but the finest, and that's exactly what we deliver!",
-      followUp: "Would you like to know about our organic certification or see our product range?",
-      reactions: ['✅', '🏆', '🌱', '👍']
-    },
-    'prices': {
-      text: "I understand you want to know about pricing! 💰 We believe in fair, transparent pricing that reflects the quality of our organic produce.\n\n**Our Pricing Philosophy:**\n• 💚 **Fair Value:** Quality organic produce at reasonable prices\n• 📦 **Bulk Discounts:** Better rates for larger orders\n• 🎯 **Seasonal Pricing:** Reflects natural availability\n• 👥 **Loyalty Rewards:** Special prices for regular customers\n\n**Current Offers:**\n• 🏢 **Business Accounts:** Special wholesale pricing\n• 🎉 **First Order:** 10% discount for new customers\n• 📦 **Bulk Orders:** Up to 25% off for large quantities\n\n**Get Exact Pricing:**\nSince prices vary by season and availability, I'd love to give you current rates. Just call us at +91 8122429668 or WhatsApp us for instant pricing!\n\nWe're always happy to work within your budget while ensuring you get the best quality!",
-      followUp: "Would you like to know about our bulk ordering options or seasonal pricing?",
-      reactions: ['💰', '📞', '🏢', '👍']
-    },
-    'delivery': {
-      text: "We make sure your fresh produce reaches you in perfect condition! 🚚\n\n**Our Delivery Promise:**\n🚚 **Same-Day Delivery:** For local orders (within city limits)\n📦 **Next-Day Delivery:** For nearby areas\n📅 **Scheduled Delivery:** Choose your preferred time\n🌿 **Fresh Guarantee:** Products stay fresh during transit\n\n**Delivery Areas:**\nWe currently serve [your service areas] with plans to expand. Our delivery network is growing every day!\n\n**Delivery Charges:**\n• 🆓 **Free Delivery:** Orders above ₹500\n• 💰 **Standard Fee:** ₹50 for orders below ₹500\n• 🚚 **Express Delivery:** ₹100 for same-day delivery\n\n**Special Care:**\nWe use eco-friendly packaging and maintain optimal temperature to preserve freshness. Your satisfaction is our priority!\n\nWant to know if we deliver to your area? Just share your location!",
-      followUp: "Would you like to know about our delivery areas or how to place an order?",
-      reactions: ['🚚', '📞', '📍', '👍']
+      text: `At Luqi Harvest, we are committed to maintaining the highest quality and safety standards throughout our production and packaging processes.\n\n- FSSAI Compliance\n- MSDS Adherence\n- GMP Practices\n- HACCP Principles\n- Batch-wise Quality Testing\n- Sanitized Production Environment\n- Trained Quality Personnel`,
+      followUp: "Would you like to know about certifications or ordering?",
+      reactions: ['🏆', '✅', '👍']
     },
     'order': {
-      text: "Perfect! I'm here to make ordering super easy for you! 🛒\n\n**How to Order:**\n📞 **Call Us:** +91 8122429668\n• Speak directly with our friendly team\n• Get personalized recommendations\n• Instant order confirmation\n\n💬 **WhatsApp:** Click the WhatsApp button\n• Send us your order list\n• Get quick responses and updates\n• Perfect for busy schedules\n\n📧 **Email:** info@luqiharvest.com\n• Great for detailed orders\n• Attach your shopping list\n• We'll confirm within hours\n\n🏢 **Visit Us:** Come to our facility\n• See our products in person\n• Meet our team\n• Get expert advice\n\n**Payment Options:**\n💳 Cash on delivery, UPI, bank transfer, digital wallets - we accept it all!\n\n**Pro Tip:** Call us for the best experience - we love helping customers choose the perfect products! 😊",
-      followUp: "Would you like to know about our payment options or product availability?",
-      reactions: ['📞', '💬', '💳', '👍']
+      text: `Placing an order with Luqi Harvest is quick and simple!\n\n- Call or WhatsApp us at +91 81224 29668\n- Email: luqiharvestindia@gmail.com\n- DM us on Facebook, Instagram, LinkedIn\n- Submit an Inquiry via our website\nFor bulk/export orders, our sales team will guide you through the process. Once we receive your order request, our team will share a proforma invoice, confirm stock availability, and schedule production or dispatch as per your needs.`,
+      followUp: "Would you like to know about delivery or bulk export?",
+      reactions: ['📞', '💬', '👍']
     },
-    'location': {
-      text: "We'd love to have you visit us! 🏢\n\n**Our Main Facility:**\n📍 [Your Company Address]\n• Modern processing facility\n• Quality control labs\n• Fresh produce storage\n• Customer service center\n\n**What You'll Find Here:**\n🌿 **Farm Tours:** See how we grow our organic produce\n🏭 **Processing Unit:** Watch how we maintain quality\n📦 **Packaging Center:** See our eco-friendly packaging\n👥 **Friendly Team:** Meet the people behind LUQI HARVEST\n\n**Distribution Centers:**\nWe also have distribution centers across [your service areas] to ensure quick delivery to all our customers.\n\n**Visit Hours:**\nMonday to Saturday: 8 AM - 6 PM\nSunday: Closed (but we're available on WhatsApp!)\n\nCome say hello - we'd love to show you around and share our passion for organic farming!",
-      followUp: "Would you like to know about our delivery services or business hours?",
-      reactions: ['📍', '🚚', '⏰', '👍']
-    },
-    'organic': {
-      text: "Absolutely! 🌱 Organic farming isn't just what we do - it's who we are!\n\n**Our Organic Commitment:**\n🌿 **100% Natural:** No synthetic fertilizers or pesticides\n🌱 **Soil Health:** We nurture our soil naturally\n🐝 **Biodiversity:** We protect beneficial insects and wildlife\n💧 **Water Conservation:** Sustainable irrigation practices\n🌍 **Climate Friendly:** Reducing our carbon footprint\n\n**What This Means for You:**\n• 🍎 **Better Taste:** Natural flavors without chemical residues\n• 💪 **More Nutrients:** Higher vitamin and mineral content\n• 🛡️ **Safer for Family:** No harmful chemical exposure\n• 🌍 **Better for Planet:** Supporting sustainable agriculture\n\n**Our Certifications:**\n🏆 Certified organic by [certification body]\n✅ Regular audits and compliance checks\n📋 Transparent farming practices\n\nWe believe organic isn't just a choice - it's the only way to farm! Your health and our planet's future depend on it.",
-      followUp: "Would you like to know about our certification or see our organic product range?",
-      reactions: ['🌱', '🏆', '💚', '👍']
-    },
-    'fresh': {
-      text: "Freshness is our superpower! 🌿 We're obsessed with getting you the freshest produce possible.\n\n**Our Freshness Promise:**\n🌅 **Same-Day Harvest:** Most products harvested the day of delivery\n🚚 **Direct Delivery:** From our farms to your doorstep\n❄️ **Temperature Control:** Optimal storage during transit\n📦 **Eco Packaging:** Preserves freshness naturally\n⏰ **Quick Processing:** Minimal time between harvest and delivery\n\n**Why Freshness Matters:**\n• 🍎 **Better Taste:** Peak flavor and aroma\n• 💪 **More Nutrients:** Maximum vitamin content\n• 🥬 **Crisp Texture:** Vegetables that stay fresh longer\n• 🥤 **Pure Juices:** No preservatives needed\n\n**Our Process:**\n1. 🌅 Early morning harvest at peak ripeness\n2. 🧼 Gentle cleaning and sorting\n3. 📦 Eco-friendly packaging\n4. 🚚 Temperature-controlled delivery\n5. 🏠 Fresh to your kitchen\n\nWe're so confident in our freshness that we offer a 24-hour freshness guarantee!",
-      followUp: "Would you like to know about our delivery process or product availability?",
-      reactions: ['🌿', '🚚', '💚', '👍']
+    'delivery': {
+      text: `Our delivery policy includes:\n\nDomestic Deliveries: 3–7 working days after order confirmation.\nInternational Deliveries: Exports via Chennai Port or other major Indian ports.\nPackaging & Handling: Securely packed in aseptic barrels, cans, or frozen bags.\nWe ensure full transparency, live tracking (where applicable), and end-to-end support.`,
+      followUp: "Would you like to know about bulk orders or export documentation?",
+      reactions: ['🚚', '🌏', '👍']
     },
     'bulk': {
-      text: "Excellent choice! 🏢 We love working with businesses and large orders!\n\n**Bulk Order Benefits:**\n💰 **Special Pricing:** Wholesale rates for bulk orders\n🚚 **Priority Delivery:** Dedicated delivery slots\n📦 **Custom Packaging:** Branded packaging available\n📋 **Regular Supply:** Set up recurring orders\n👤 **Account Manager:** Dedicated contact person\n📊 **Volume Discounts:** Better rates for larger quantities\n\n**Perfect For:**\n🏪 **Restaurants & Hotels:** Fresh ingredients daily\n🏢 **Corporate Offices:** Healthy snacks for employees\n🎉 **Events & Catering:** Fresh produce for large gatherings\n🏪 **Retail Stores:** Stock your shelves with quality products\n🏥 **Hospitals & Schools:** Nutritious meals for institutions\n\n**Our Business Partners Love:**\n• 📞 **Dedicated Support:** Direct line to our team\n• 📅 **Flexible Scheduling:** Delivery when you need it\n• 💳 **Credit Terms:** Payment options for businesses\n• 📊 **Regular Reports:** Track your orders and savings\n\nLet's discuss your specific needs and create a perfect partnership!",
-      followUp: "Would you like to discuss bulk pricing or set up a business account?",
-      reactions: ['🏢', '💰', '📞', '👍']
+      text: `Absolutely! Luqi Harvest specializes in bulk exports of high-quality fruit pulps and concentrates.\n\n- Bulk packaging: 215 kg Aseptic bags, 3.1 kg OTS tins, 850g/450g Cans\n- Products: Alphonso mango pulp, Totapuri mango pulp, Guava pulp, and more\n- Shipment from Chennai International Port\n- All export documentation provided\n- MOQ: 1 FCL (Full Container Load)`,
+      followUp: "Would you like to know about sweetened/unsweetened options or private labeling?",
+      reactions: ['🌏', '📦', '👍']
     },
-    'seasonal': {
-      text: "Great question! 🌞 We love working with nature's seasons - it ensures the best quality and taste!\n\n**Current Seasonal Highlights:**\n🌞 **Summer (March-June):**\n• 🥭 **Alphonso Mangoes** - The king is here! Sweet, aromatic, perfect\n• 🥭 **Totapuri & Kesar** - Great for juices and desserts\n• 🍍 **Pineapple** - Sweet and refreshing\n• 🍅 **Tomatoes** - Perfect for salads and cooking\n\n🌧️ **Monsoon (July-September):**\n• 🥑 **Guava varieties** - Rich in vitamin C\n• 🍎 **Sapota (Chikku)** - Creamy and naturally sweet\n• 🥭 **Jackfruit** - Versatile and nutritious\n• 🧄 **Ginger & Garlic** - Essential for monsoon cooking\n\n❄️ **Winter (October-February):**\n• 🌶️ **Green & Red Chilli** - Add warmth to your dishes\n• 🥭 **Tamarind** - Natural souring agent\n• 🌽 **Baby Corn** - Tender and sweet\n• 🧄 **Fresh Garlic** - Immunity boosters\n\n**Pro Tip:** Seasonal produce is not only fresher but also more affordable! Want to know what's currently in season?",
-      followUp: "Would you like to know about current seasonal products or pricing?",
-      reactions: ['🌞', '🌧️', '❄️', '👍']
+    'sweetened': {
+      text: `We provide both sweetened and unsweetened variants based on customer requirements. Standard export pulp is typically unsweetened, ideal for further processing into juices or desserts.`,
+      followUp: "Would you like to know about preservatives or organic options?",
+      reactions: ['🥭', '👍']
     },
-    'certification': {
-      text: "We're proud of our certifications! 🏆 They prove our commitment to quality and organic practices.\n\n**Our Certifications:**\n🏆 **Organic Certification:** [Certification Body]\n• Annual audits and compliance checks\n• Regular soil and product testing\n• Transparent farming practices\n\n✅ **Food Safety Standards:**\n• HACCP certified processes\n• ISO quality management systems\n• International food safety compliance\n• Regular facility inspections\n\n🌱 **Environmental Standards:**\n• Sustainable farming practices\n• Carbon footprint reduction\n• Water conservation measures\n• Biodiversity protection\n\n**What This Means for You:**\n• 🛡️ **Trust & Safety:** Third-party verified quality\n• 📋 **Transparency:** Clear traceability of all products\n• 🌍 **Environmental Care:** Certified eco-friendly practices\n• 💪 **Health Assurance:** Safe, healthy produce\n\nWe don't just meet standards - we exceed them! Our certifications are proof of our dedication to your health and our planet.",
-      followUp: "Would you like to know about our quality processes or product range?",
-      reactions: ['🏆', '✅', '🌱', '👍']
+    'preservatives': {
+      text: `No preservatives, no artificial colors or flavors are added. Our products are made from natural or organic fruits.`,
+      followUp: "Would you like to know about private labeling or certifications?",
+      reactions: ['🍃', '👍']
     },
-    'payment': {
-      text: "We make payment super convenient for you! 💳\n\n**Payment Options:**\n💵 **Cash on Delivery:** Pay when you receive your order\n🏦 **Bank Transfer:** Direct transfer to our account\n📱 **UPI Payments:** Quick and easy digital payments\n💳 **Digital Wallets:** Paytm, Google Pay, PhonePe\n💳 **Credit/Debit Cards:** All major cards accepted\n\n**Business Payment Terms:**\n🏢 **Credit Accounts:** Available for regular business customers\n📅 **Flexible Terms:** 15-30 day payment terms\n📊 **Monthly Billing:** Convenient invoicing system\n💳 **Corporate Cards:** Accepted for business purchases\n\n**Security & Trust:**\n🔒 **Secure Transactions:** All digital payments are encrypted\n📋 **Clear Invoicing:** Detailed receipts for all payments\n🔄 **Easy Refunds:** Quick refund process if needed\n\n**Pro Tip:** UPI payments are the fastest and most convenient option! Just scan and pay.\n\nWe believe in making your experience as smooth as possible - from ordering to payment!",
-      followUp: "Would you like to know about our ordering process or bulk payment terms?",
-      reactions: ['💳', '💰', '📞', '👍']
+    'private label': {
+      text: `Yes, we offer OEM/private labeling services for bulk buyers. You can provide your branding and design, and after discussion with the respective department/team, we'll take care of the rest.`,
+      followUp: "Would you like to know about FSSAI or organic certification?",
+      reactions: ['🏷️', '👍']
     },
-    'return': {
-      text: "We stand behind every product we deliver! 🔄\n\n**Our Quality Guarantee:**\n✅ **24-Hour Freshness Guarantee:** If you're not satisfied, we'll replace it\n🌿 **Freshness Promise:** Products stay fresh for 24 hours after delivery\n🔄 **Easy Returns:** Simple and hassle-free return process\n💰 **Full Refund:** Money back if we can't make it right\n\n**What's Covered:**\n• 🍎 **Quality Issues:** Any product not meeting our standards\n• 📦 **Delivery Problems:** Damaged or incorrect items\n• ⏰ **Freshness Issues:** Products that don't stay fresh\n• 🛡️ **Safety Concerns:** Any safety-related issues\n\n**How It Works:**\n1. 📞 **Contact Us:** Call or WhatsApp within 24 hours\n2. 📸 **Send Photos:** Show us the issue (if applicable)\n3. 🚚 **Quick Resolution:** Replacement or refund within hours\n4. 😊 **Your Satisfaction:** We're not happy until you are!\n\n**Our Promise:**\nWe're not just selling products - we're building relationships. Your satisfaction is our top priority!",
-      followUp: "Would you like to know about our quality standards or how to place an order?",
-      reactions: ['🔄', '✅', '📞', '👍']
+    'fssai': {
+      text: `Yes, all our products are FSSAI-certified and manufactured under strict hygiene and food safety guidelines.`,
+      followUp: "Would you like to know about organic certification?",
+      reactions: ['✅', '👍']
     },
-    'hours': {
-      text: "We're here when you need us! ⏰\n\n**Customer Service Hours:**\n📅 **Monday to Saturday:** 8:00 AM - 6:00 PM\n• Full customer support\n• Order processing\n• Product consultations\n• Quality assistance\n\n📅 **Sunday:** Closed for family time\n• But we're available on WhatsApp for urgent orders!\n• Emergency orders can be placed via WhatsApp\n\n**Best Times to Contact Us:**\n🌅 **Morning (8 AM - 11 AM):** Perfect for placing orders\n☀️ **Afternoon (2 PM - 5 PM):** Great for product consultations\n🌆 **Evening (5 PM - 6 PM):** Order confirmations and updates\n\n**After Hours Support:**\n💬 **WhatsApp:** Available 24/7 for urgent inquiries\n📧 **Email:** We'll respond first thing next morning\n📞 **Emergency Orders:** Special arrangements for urgent needs\n\n**Pro Tip:** Call us in the morning for the freshest selection and fastest processing! 😊",
-      followUp: "Would you like to know about our contact methods or how to place an order?",
-      reactions: ['⏰', '📞', '💬', '👍']
+    'organic': {
+      text: `Yes, organic options are available upon request. We coordinate with our partnered manufacturers to provide products certified under NPOP, USDA Organic, or EU Organic, as required.`,
+      followUp: "Would you like to know about MOQ or get a quotation?",
+      reactions: ['🌱', '👍']
     },
-    'help': {
-      text: "I'm here to help you with everything LUQI HARVEST! 🤗\n\n**What I Can Help You With:**\n🍎 **Product Information:** Learn about our fruits, vegetables, and juices\n💰 **Pricing & Orders:** Get current prices and place orders\n📞 **Contact Details:** Find the best way to reach us\n🏆 **Quality Standards:** Understand our organic practices\n🚚 **Delivery Info:** Learn about our delivery services\n📅 **Seasonal Products:** Know what's available when\n🏢 **Bulk Orders:** Special pricing for businesses\n🌱 **Organic Certification:** Details about our practices\n💳 **Payment Options:** All the ways you can pay\n⏰ **Business Hours:** When we're available to help\n\n**Quick Tips:**\n• 🍎 Ask about seasonal products for the best deals\n• 📞 Call us for personalized recommendations\n• 💬 WhatsApp is fastest for quick questions\n• 🏢 We offer special pricing for bulk orders\n\nI'm your personal LUQI HARVEST assistant - no question is too small! What would you like to know? 😊",
-      followUp: "What would you like to know more about?",
-      reactions: ['📋', '🍎', '📞', '👍']
+    'moq': {
+      text: `For exports, MOQ is usually 1 full container (20ft or 40ft). For domestic bulk orders, MOQ can be discussed case-by-case.`,
+      followUp: "Would you like to get a quotation or know about shipping ports?",
+      reactions: ['📦', '👍']
+    },
+    'quotation': {
+      text: `Please share your product requirements, quantity, packaging preference, and destination. We'll send a detailed quotation with Ex-factory/FOB pricing within 24 hours via Email.`,
+      followUp: "Would you like to know about shipping ports or export documentation?",
+      reactions: ['💰', '👍']
+    },
+    'port': {
+      text: `We primarily ship from Chennai International Port (India), but we can also coordinate from other major Indian ports based on your availability.`,
+      followUp: "Would you like to know about export documentation?",
+      reactions: ['🚢', '👍']
+    },
+    'documentation': {
+      text: `Yes, we provide complete export documentation, including Invoice & Packing List, Certificate of Origin, Lab Reports & FSSAI License (as per destination requirement).`,
+      followUp: "Would you like to request a sample?",
+      reactions: ['📄', '👍']
+    },
+    'sample': {
+      text: `Yes, we offer paid sample dispatch (with shipping cost covered by the buyer). It's the best way to evaluate our quality before placing bulk orders.`,
+      followUp: "Would you like to know about our manufacturing process?",
+      reactions: ['📦', '👍']
+    },
+    'manufacturer': {
+      text: `We are a contract manufacturer and aggregator, working closely with certified manufacturing units under our supervision. All products are processed in FSSAI-approved facilities, with Luqi Harvest quality control staff overseeing the production.`,
+      followUp: "Would you like to stay updated with our new products or offers?",
+      reactions: ['🏭', '👍']
+    },
+    'updates': {
+      text: `Follow us on:\n- Facebook – Luqi Harvest\n- Instagram – Luqi Harvest\n- X.com – Luqi Harvest\n- LinkedIn – Luqi Harvest\n- YouTube – Luqi Harvest\n- WhatsApp Broadcast List – +91 81224 29668 (Send us a message to join)`,
+      followUp: "Is there anything else I can help you with?",
+      reactions: ['📱', '👍']
     }
   };
 
   const getBotResponse = (userMessage) => {
     const lowerMessage = userMessage.toLowerCase();
+    
+    // Handle generic confirmations to follow-ups
+    if (["yes", "ok", "sure", "yep", "yeah", "please", "go ahead", "alright", "fine"].some(word => lowerMessage === word || lowerMessage.includes(word))) {
+      if (lastFollowUpKey && botResponses[lastFollowUpKey]) {
+        return botResponses[lastFollowUpKey];
+      }
+    }
     
     // Check for specific keywords and return appropriate responses
     if (lowerMessage.includes('product') || lowerMessage.includes('fruit') || lowerMessage.includes('vegetable') || lowerMessage.includes('mango') || lowerMessage.includes('guava')) {
@@ -199,16 +212,28 @@ const Chatbot = () => {
 
       // Add follow-up question after a short delay
       if (botResponseData.followUp) {
-        setTimeout(() => {
-          const followUpMessage = {
-            id: messages.length + 3,
-            text: botResponseData.followUp,
-            sender: 'bot',
-            timestamp: new Date(),
-            isFollowUp: true
-          };
-          setMessages(prev => [...prev, followUpMessage]);
-        }, 1500);
+        // Try to extract a follow-up key from the botResponseData
+        let followUpKey = null;
+        if (botResponseData.text.includes('packaging')) followUpKey = 'packaging';
+        else if (botResponseData.text.includes('quality')) followUpKey = 'quality';
+        else if (botResponseData.text.includes('order')) followUpKey = 'order';
+        else if (botResponseData.text.includes('delivery')) followUpKey = 'delivery';
+        else if (botResponseData.text.includes('bulk')) followUpKey = 'bulk';
+        else if (botResponseData.text.includes('organic')) followUpKey = 'organic';
+        else if (botResponseData.text.includes('certification')) followUpKey = 'fssai';
+        else if (botResponseData.text.includes('quotation')) followUpKey = 'quotation';
+        else if (botResponseData.text.includes('sample')) followUpKey = 'sample';
+        else if (botResponseData.text.includes('manufacturer')) followUpKey = 'manufacturer';
+        else if (botResponseData.text.includes('updates')) followUpKey = 'updates';
+        setLastFollowUpKey(followUpKey);
+        const followUpMessage = {
+          id: messages.length + 3,
+          text: botResponseData.followUp,
+          sender: 'bot',
+          timestamp: new Date(),
+          isFollowUp: true
+        };
+        setMessages(prev => [...prev, followUpMessage]);
       }
     }, typingDelay);
   };
