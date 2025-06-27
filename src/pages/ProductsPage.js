@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams, useNavigate, Link } from 'react-router-dom';
+import AnimatedSection from "../AnimatedSection";
 
 const categories = [
   { key: 'all', label: 'All Products', icon: '🛒' },
@@ -117,6 +118,17 @@ const products = {
   ]
 };
 
+// SVG icons for packaging options
+const DrumIcon = () => (
+  <svg width="48" height="48" fill="none" viewBox="0 0 48 48"><rect x="10" y="8" width="28" height="32" rx="6" stroke="#4CAF50" strokeWidth="3" fill="#E0F7FA"/><rect x="16" y="16" width="16" height="16" rx="3" stroke="#4CAF50" strokeWidth="2" fill="#fff"/></svg>
+);
+const CanIcon = () => (
+  <svg width="48" height="48" fill="none" viewBox="0 0 48 48"><rect x="12" y="10" width="24" height="28" rx="5" stroke="#FFC107" strokeWidth="3" fill="#FFF8E1"/><rect x="18" y="18" width="12" height="12" rx="2" stroke="#FFC107" strokeWidth="2" fill="#fff"/></svg>
+);
+const FrozenIcon = () => (
+  <svg width="48" height="48" fill="none" viewBox="0 0 48 48"><rect x="10" y="14" width="28" height="20" rx="5" stroke="#2196F3" strokeWidth="3" fill="#E3F2FD"/><path d="M24 14v20" stroke="#2196F3" strokeWidth="2"/><path d="M16 24h16" stroke="#2196F3" strokeWidth="2"/></svg>
+);
+
 export default function ProductsPage() {
   const params = useParams();
   const navigate = useNavigate();
@@ -135,9 +147,16 @@ export default function ProductsPage() {
   return (
     <div>
       {/* Gradient Banner/Header */}
-      <div className="w-full py-12 md:py-20 bg-gradient-to-r from-green-400 to-yellow-400 text-center">
-        <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-4">Our Premium Products</h1>
-        <p className="text-lg md:text-xl text-white mb-6">Quality & Flavor in Every Bite - Sourced from the finest farms in India</p>
+      <div className="w-full py-12 md:py-20 text-center" style={{
+        backgroundImage: "url('/product-banner.jpg')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}>
+        <AnimatedSection>
+          <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-4">Our Premium Products</h1>
+          <p className="text-lg md:text-xl text-white mb-6">Quality & Flavor in Every Bite - Sourced from the finest farms in India</p>
+        </AnimatedSection>
         <div className="flex justify-center">
           <span className="inline-block bg-white bg-opacity-30 text-white font-bold text-lg md:text-xl rounded-full px-8 py-2 mb-2 shadow-lg">
             {selectedCategory?.label}
@@ -315,19 +334,19 @@ export default function ProductsPage() {
           <p className="text-lg text-gray-600 mb-10 text-center max-w-2xl mx-auto">We offer a variety of packaging solutions to suit your needs, ensuring product freshness and safety from our facility to your destination.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center">
-              <img src="/images/products/AS1-Alphanso Mango.jpg" alt="Aseptic Packaging" className="w-24 h-24 object-contain mb-4" />
+              <DrumIcon />
               <h3 className="text-xl font-semibold mb-2">Aseptic Drums</h3>
               <p className="text-gray-600 text-center mb-2">220/215 kg, 100% sterile, ideal for export and long shelf life.</p>
               <span className="inline-block bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">Most Popular</span>
             </div>
             <div className="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center">
-              <img src="/images/products/AS2-Totapuri Mango.jpg" alt="OTS Cans" className="w-24 h-24 object-contain mb-4" />
+              <CanIcon />
               <h3 className="text-xl font-semibold mb-2">OTS Cans</h3>
-              <p className="text-gray-600 text-center mb-2">Available in 3.1kg, 850g, 450g, 215g. Perfect for retail and food service.</p>
+              <p className="text-gray-600 text-center mb-2">Available in 3.1kg, 850g, 450g. Perfect for retail and food service.</p>
               <span className="inline-block bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">Retail & Food Service</span>
             </div>
             <div className="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center">
-              <img src="/images/products/FZ1-Alphanso Mango.jpg" alt="Frozen Packaging" className="w-24 h-24 object-contain mb-4" />
+              <FrozenIcon />
               <h3 className="text-xl font-semibold mb-2">Frozen Packaging</h3>
               <p className="text-gray-600 text-center mb-2">IQF, blocks, and custom frozen packs for maximum freshness.</p>
               <span className="inline-block bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Frozen Solutions</span>

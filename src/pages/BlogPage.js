@@ -8,19 +8,19 @@ const BlogPage = () => {
     {
       id: 1,
       title: "Future Growth of Fruit Pulp Business Towards 2030",
-      excerpt: "The mango pulp industry is set to experience significant expansion by 2030, driven by increasing global demand for natural and organic food products.",
-      image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      excerpt: "Mango pulp is set to drive major growth in the fruit pulp business by 2030, thanks to rising global demand for natural, organic, and convenient food products. Its versatility makes it a favorite for beverages, desserts, and more. Discover the key trends and opportunities ahead.",
+      image: "/images/Blog/blog-5.png",
       category: "Industry Trends",
       date: "June 18, 2024",
       readTime: "8 min read",
       featured: true,
-      content: "The mango pulp industry is set to experience significant expansion by 2030, driven by increasing global demand for natural and organic food products. As consumer preferences shift toward healthier and more convenient food options, mango pulp is becoming a key ingredient in beverages, desserts, and processed foods. This blog explores the benefits of mango pulp, export trends, and innovations shaping the food industry."
+      content: undefined
     },
     {
       id: 2,
       title: "Global Export Trends in Mango Pulp Industry",
       excerpt: "The mango pulp export business is expanding rapidly due to rising international demand from key markets worldwide.",
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "/images/Blog/blog-1.png",
       category: "Export Markets",
       date: "June 15, 2024",
       readTime: "6 min read",
@@ -30,7 +30,7 @@ const BlogPage = () => {
       id: 3,
       title: "Innovations in Food Industry Using Mango Pulp",
       excerpt: "With technological advancements, the food industry is innovating mango pulp applications for new product development.",
-      image: "https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "/images/Blog/blog-3.png",
       category: "Innovation",
       date: "June 12, 2024",
       readTime: "7 min read",
@@ -40,7 +40,7 @@ const BlogPage = () => {
       id: 4,
       title: "Sustainable Packaging Solutions for Fruit Products",
       excerpt: "Brands are shifting to biodegradable and recyclable packaging for mango pulp to meet environmental standards.",
-      image: "https://images.unsplash.com/photo-1536511132770-e5058c4e8c59?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "/images/products/AS1-Alphanso Mango.jpg",
       category: "Sustainability",
       date: "June 10, 2024",
       readTime: "5 min read",
@@ -50,7 +50,7 @@ const BlogPage = () => {
       id: 5,
       title: "Quality Standards in Fruit Processing",
       excerpt: "Maintaining high quality standards in fruit processing is crucial for international market success.",
-      image: "https://images.unsplash.com/photo-1553279768-865429fa0078?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "/images/Blog/blog6.jpg",
       category: "Quality",
       date: "June 8, 2024",
       readTime: "6 min read",
@@ -60,7 +60,7 @@ const BlogPage = () => {
       id: 6,
       title: "Direct-to-Consumer Growth in Fruit Industry",
       excerpt: "Companies are selling mango pulp directly to consumers via online marketplaces with subscription models.",
-      image: "https://images.unsplash.com/photo-1625948515291-69613efd103f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "/images/Blog/blog-4.png",
       category: "E-commerce",
       date: "June 5, 2024",
       readTime: "4 min read",
@@ -74,8 +74,14 @@ const BlogPage = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-green-500 to-yellow-500 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="text-white py-20 relative" style={{
+        backgroundImage: "url('/Blog-banner.jpg')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}>
+        <div className="absolute inset-0 bg-black bg-opacity-50" style={{zIndex:1}}></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style={{position: 'relative', zIndex: 2}}>
           <AnimatedSection>
             <div className="text-center">
               <h1 className="text-5xl lg:text-6xl font-bold mb-6">
@@ -131,7 +137,7 @@ const BlogPage = () => {
                   </h2>
                   
                   <p className="text-gray-600 text-lg mb-6 leading-relaxed">
-                    {featuredPost.content}
+                    {featuredPost.excerpt}
                   </p>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
@@ -194,12 +200,13 @@ const BlogPage = () => {
                     </div>
                   </div>
 
-                  <button 
-                    onClick={() => window.location.href = '/contact'}
+                  <Link 
+                    to={`/blog/future-growth-2030`} 
                     className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-semibold transition-all flex items-center"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                   >
                     Read Full Article <ArrowRight className="ml-2 w-5 h-5" />
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -223,7 +230,7 @@ const BlogPage = () => {
                   <img
                     src={post.image}
                     alt={post.title}
-                    className="w-full h-48 object-cover"
+                    className={`w-full h-48 ${post.id === 4 ? 'object-contain' : 'object-cover'}`}
                   />
                   <div className="absolute top-3 left-3 bg-green-500 text-white px-2 py-1 rounded text-xs font-medium">
                     {post.category}
@@ -248,12 +255,13 @@ const BlogPage = () => {
                     {post.excerpt}
                   </p>
                   
-                  <button 
-                    onClick={() => window.location.href = '/contact'}
+                  <Link 
+                    to={post.id === 6 ? "/blog/direct-to-consumer" : post.id === 5 ? "/blog/quality-standards" : post.id === 4 ? "/blog/sustainable-packaging" : post.id === 3 ? "/blog/innovations-mango-pulp" : post.id === 2 ? "/blog/global-export-trends" : `/blog/${post.id}`} 
                     className="text-green-600 hover:text-green-700 font-semibold flex items-center"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                   >
                     Read More <ArrowRight className="ml-1 w-4 h-4" />
-                  </button>
+                  </Link>
                 </div>
               </div>
             </AnimatedSection>

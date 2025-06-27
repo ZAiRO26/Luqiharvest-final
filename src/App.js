@@ -29,6 +29,12 @@ import GuavaJuiceDetailPage from './pages/products/juice-commodities/GuavaJuiceD
 import LemonJuiceDetailPage from './pages/products/juice-commodities/LemonJuiceDetailPage';
 import PineappleJuiceDetailPage from './pages/products/juice-commodities/PineappleJuiceDetailPage';
 import LycheeJuiceDetailPage from './pages/products/juice-commodities/LycheeJuiceDetailPage';
+import FutureGrowth2030Page from './pages/blog/FutureGrowth2030Page';
+import GlobalExportTrendsPage from './pages/blog/GlobalExportTrendsPage';
+import InnovationsMangoPulpPage from './pages/blog/InnovationsMangoPulpPage';
+import SustainablePackagingPage from './pages/blog/SustainablePackagingPage';
+import QualityStandardsPage from './pages/blog/QualityStandardsPage';
+import DirectToConsumerPage from './pages/blog/DirectToConsumerPage';
 
 function BackToTopButton() {
   const [visible, setVisible] = useState(false);
@@ -106,6 +112,12 @@ function App() {
             <Route path="/products/juice-commodities/lychee-juice" element={<LycheeJuiceDetailPage />} />
             <Route path="/quality" element={<QualityPage />} />
             <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/future-growth-2030" element={<FutureGrowth2030Page />} />
+            <Route path="/blog/global-export-trends" element={<GlobalExportTrendsPage />} />
+            <Route path="/blog/innovations-mango-pulp" element={<InnovationsMangoPulpPage />} />
+            <Route path="/blog/sustainable-packaging" element={<SustainablePackagingPage />} />
+            <Route path="/blog/quality-standards" element={<QualityStandardsPage />} />
+            <Route path="/blog/direct-to-consumer" element={<DirectToConsumerPage />} />
             <Route path="/contact" element={<ContactPage />} />
           </Routes>
         </main>

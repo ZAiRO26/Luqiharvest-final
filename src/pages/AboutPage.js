@@ -5,9 +5,9 @@ import { Globe, Target, Heart, CheckCircle, Sprout, Cog, Briefcase, Leaf, Award 
 
 const AboutPage = () => {
   const stats = [
-    { number: "20+", label: "Years of experience", icon: Sprout },
-    { number: "500+", label: "Employees", icon: Cog },
-    { number: "10+", label: "Processing Lines", icon: Briefcase },
+    { number: "20+", label: "Years of industry experts", icon: Sprout },
+    { number: "10+", label: "Industry Tie-ups", icon: Cog },
+    { number: "50+", label: "Clients", icon: Briefcase },
     { number: "75+", label: "Exporting countries", icon: Globe },
   ];
 
@@ -164,7 +164,7 @@ const AboutPage = () => {
               />
               <div className="absolute -bottom-6 -right-6 bg-white rounded-lg shadow-lg p-4">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-green-600">10+</div>
+                  <div className="text-2xl font-bold text-green-600">20+</div>
                   <div className="text-sm text-gray-600">Years of Excellence</div>
                 </div>
               </div>

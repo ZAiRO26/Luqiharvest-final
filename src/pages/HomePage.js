@@ -206,18 +206,18 @@ export default function HomePage() {
               <svg className="w-16 h-16 text-green-500 mb-3" fill="none" viewBox="0 0 48 48"><g stroke="currentColor" strokeWidth="2"><circle cx="24" cy="24" r="22"/><circle cx="24" cy="24" r="8"/><circle cx="24" cy="24" r="2"/><path d="M24 16v-6M24 32v6M16 24h-6M32 24h6M18.93 18.93l-4.24-4.24M29.07 29.07l4.24 4.24M18.93 29.07l-4.24 4.24M29.07 18.93l4.24-4.24"/></g></svg>
               <div className="text-center">
                 <span className="block text-2xl">
-                  <span className="font-bold">100</span><span className="text-green-500 font-normal">+</span>
+                  <span className="font-bold">10</span><span className="text-green-500 font-normal">+</span>
                 </span>
-                <span className="block text-xl text-gray-900 mt-1">Industry Tie ups</span>
+                <span className="block text-xl text-gray-900 mt-1">Industry Tie-ups</span>
               </div>
             </div>
             <div className="flex flex-col items-center flex-1 py-8 px-10">
               <svg className="w-16 h-16 text-green-500 mb-3" fill="none" viewBox="0 0 48 48"><g stroke="currentColor" strokeWidth="2"><rect x="8" y="16" width="32" height="20" rx="4"/><rect x="16" y="8" width="16" height="8" rx="2"/><path d="M24 16v20"/></g></svg>
               <div className="text-center">
                 <span className="block text-2xl">
-                  <span className="font-bold">10</span><span className="text-green-500 font-normal">+</span>
+                  <span className="font-bold">50</span><span className="text-green-500 font-normal">+</span>
                 </span>
-                <span className="block text-xl text-gray-900 mt-1">Processing Lines</span>
+                <span className="block text-xl text-gray-900 mt-1">Clients</span>
               </div>
             </div>
             <div className="flex flex-col items-center flex-1 py-8 px-10">
@@ -361,13 +361,11 @@ export default function HomePage() {
       </section>
 
       {/* Call-to-Action Section (below About Us) */}
-      <section className="w-full bg-gradient-to-r from-[#6fc13e] to-[#7ed957] py-24 flex flex-col items-center justify-center relative overflow-hidden">
-        <div className="absolute left-12 top-12 -translate-y-1/2 w-60 h-60 bg-white bg-opacity-10 rounded-full" style={{zIndex:1}}></div>
-        <div className="absolute right-12 top-1/2 -translate-y-1/2 w-96 h-96 bg-white bg-opacity-10 rounded-full" style={{zIndex:1}}></div>
+      <section className="w-full py-24 flex flex-col items-center justify-center relative overflow-hidden" style={{ backgroundColor: '#7ED957', borderRadius: '1.5rem' }}>
         <div className="relative z-10 flex flex-col items-center justify-center w-full">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-white text-center mb-6">Ready to Experience Our Premium Fruit Pulp?</h2>
-          <p className="text-xl text-white text-center mb-10 max-w-2xl">Contact us today to discuss your requirements or to request samples of our premium fruit pulp products.</p>
-          <Link to="/contact" className="bg-white text-green-600 hover:bg-green-50 font-semibold px-10 py-4 rounded-lg text-xl shadow transition-all">Get in Touch</Link>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-white text-center mb-6">Ready to Partner with Us?</h2>
+          <p className="text-xl text-white text-center mb-10 max-w-2xl">Join us in bringing the finest Indian fruits to global markets</p>
+          <Link to="/contact" className="bg-white text-green-600 hover:bg-green-50 font-semibold px-10 py-4 rounded-lg text-xl shadow transition-all">Get In Touch</Link>
         </div>
       </section>
 
