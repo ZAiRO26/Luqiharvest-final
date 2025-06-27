@@ -36,19 +36,19 @@ const AboutPage = () => {
     {
       name: "Management Team",
       role: "Leadership",
-      image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      image: "/images/About us/leadership.png",
       description: "Experienced leadership driving innovation and growth"
     },
     {
       name: "Quality Control",
       role: "Excellence",
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      image: "/images/About us/quality1.png",
       description: "Rigorous quality standards ensuring premium products"
     },
     {
       name: "Export Team",
       role: "Global Reach",
-      image: "https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      image: "/images/global-exports.jpg",
       description: "Connecting Indian fruits to global markets"
     }
   ];
@@ -158,7 +158,7 @@ const AboutPage = () => {
           <AnimatedSection delay={200}>
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                src="/images/About us/export.png"
                 alt="Our Story"
                 className="rounded-2xl shadow-xl"
               />

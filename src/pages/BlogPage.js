@@ -271,7 +271,7 @@ const BlogPage = () => {
 
       {/* Newsletter Section */}
       <AnimatedSection>
-        <div className="bg-gradient-to-r from-green-500 to-yellow-500 rounded-2xl mx-4 sm:mx-8 lg:mx-16 my-16 p-8 text-white text-center">
+        <div className="bg-green-500 rounded-2xl mx-4 sm:mx-8 lg:mx-16 my-16 p-8 text-white text-center">
           <h3 className="text-3xl font-bold mb-4">Stay Ahead of the Curve</h3>
           <p className="text-xl mb-6">
             Subscribe to our newsletter for the latest industry updates and insights.
