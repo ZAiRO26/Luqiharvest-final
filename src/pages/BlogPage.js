@@ -40,7 +40,7 @@ const BlogPage = () => {
       id: 4,
       title: "Sustainable Packaging Solutions for Fruit Products",
       excerpt: "Brands are shifting to biodegradable and recyclable packaging for mango pulp to meet environmental standards.",
-      image: "/images/products/AS1-Alphanso Mango.jpg",
+      image: "/images/packaging1.jpg",
       category: "Sustainability",
       date: "June 10, 2024",
       readTime: "5 min read",

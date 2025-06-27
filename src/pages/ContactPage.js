@@ -40,7 +40,7 @@ const ContactPage = () => {
     <>
       {/* Banner Image */}
       <div className="w-full py-16 md:py-24 text-center mb-12 relative" style={{
-        backgroundImage: "url('/Contact-banner.jpg')",
+        backgroundImage: "url('/images/contactus1.jpg')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',

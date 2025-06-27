@@ -314,7 +314,7 @@ const Chatbot = () => {
       {/* Chat Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-24 right-8 z-50 bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-lg transition-all focus:outline-none animate-fade-bounce hover:scale-110"
+        className="fixed bottom-12 right-8 z-50 bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-lg transition-all focus:outline-none animate-fade-bounce hover:scale-110"
         aria-label="Open chat"
         style={{ boxShadow: '0 4px 16px rgba(0,0,0,0.18)' }}
       >

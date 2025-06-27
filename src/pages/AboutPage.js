@@ -173,35 +173,37 @@ const AboutPage = () => {
         </div>
       </div>
 
-      {/* Mission, Vision, Values */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <AnimatedSection>
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-12 text-center">
-            Our Mission, Vision & Values
-          </h2>
-        </AnimatedSection>
+      {/* Mission, Vision, Values through Team Section with unified background */}
+      <div style={{ backgroundColor: '#FFFCEB' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <AnimatedSection>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-12 text-center">
+              Our Mission, Vision & Values
+            </h2>
+          </AnimatedSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {values.map((value, index) => (
-            <AnimatedSection key={index} delay={index * 100}>
-              <div className={`bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-all transform hover:scale-105`}>
-                <div className={`w-16 h-16 bg-${value.color}-100 rounded-full flex items-center justify-center mx-auto mb-6`}>
-                  <value.icon className={`w-8 h-8 text-${value.color}-600`} />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {values.map((value, index) => (
+              <AnimatedSection key={index} delay={index * 100}>
+                <div className={`bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-all transform hover:scale-105`}>
+                  <div className={`w-16 h-16 bg-${value.color}-100 rounded-full flex items-center justify-center mx-auto mb-6`}>
+                    <value.icon className={`w-8 h-8 text-${value.color}-600`} />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                    {value.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    {value.description}
+                  </p>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  {value.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {value.description}
-                </p>
-              </div>
-            </AnimatedSection>
-          ))}
+              </AnimatedSection>
+            ))}
+          </div>
         </div>
       </div>
 
       {/* Background & Operations */}
-      <div className="bg-white py-16">
+      <div className="py-16" style={{ backgroundColor: '#FFFCEB' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-16">
@@ -216,7 +218,7 @@ const AboutPage = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <AnimatedSection>
-              <div className="bg-gray-50 p-8 rounded-2xl">
+              <div className="p-8 rounded-2xl" style={{ backgroundColor: '#FFFCEB' }}>
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">Our Background</h3>
                 <p className="text-gray-600 leading-relaxed mb-4">
                   We work closely with reliable manufacturers and farmers to ensure that only the finest fruits are selected, supporting sustainable and ethical practices. Through our extensive network, we provide high-quality, preservative-free mango pulp and other fruit pulps.
@@ -228,7 +230,7 @@ const AboutPage = () => {
             </AnimatedSection>
 
             <AnimatedSection delay={200}>
-              <div className="bg-gray-50 p-8 rounded-2xl">
+              <div className="p-8 rounded-2xl" style={{ backgroundColor: '#FFFCEB' }}>
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">Our Operations</h3>
                 <p className="text-gray-600 leading-relaxed mb-4">
                   At LUQI HARVEST, the entire process from farm to finished product is carefully managed. We work closely with local farmers, promoting sustainable agricultural practices and ensuring fair trade.
@@ -243,38 +245,43 @@ const AboutPage = () => {
       </div>
 
       {/* Team Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <AnimatedSection>
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-12 text-center">
-            Our Team
-          </h2>
-        </AnimatedSection>
+      <div style={{ backgroundColor: '#FFFCEB', width: '100%' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <AnimatedSection>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-12 text-center">
+              Our Team
+            </h2>
+          </AnimatedSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {team.map((member, index) => (
-            <AnimatedSection key={index} delay={index * 100}>
-              <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
-                    {member.name}
-                  </h3>
-                  <p className="text-green-600 font-medium mb-3">
-                    {member.role}
-                  </p>
-                  <p className="text-gray-600">
-                    {member.description}
-                  </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {team.map((member, index) => (
+              <AnimatedSection key={index} delay={index * 100}>
+                <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-48 object-cover"
+                  />
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                      {member.name}
+                    </h3>
+                    <p className="text-green-600 font-medium mb-3">
+                      {member.role}
+                    </p>
+                    <p className="text-gray-600">
+                      {member.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </AnimatedSection>
-          ))}
+              </AnimatedSection>
+            ))}
+          </div>
         </div>
       </div>
+
+      {/* Extend background color below team section to reach green footer */}
+      <div style={{ backgroundColor: '#FFFCEB', height: '80px', width: '100%' }}></div>
 
       {/* Call to Action */}
       <AnimatedSection>

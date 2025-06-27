@@ -6,18 +6,18 @@ const QualityPage = () => (
   <>
     {/* Banner Image - move to very top */}
     <div className="w-full py-16 md:py-24 text-center mb-12 relative" style={{
-      backgroundImage: "url('/Quality-banner.jpg')",
+      backgroundImage: "url('/images/quality2.jpg')",
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
     }}>
-      <div className="absolute inset-0 bg-black bg-opacity-20" style={{zIndex:1}}></div>
+      <div className="absolute inset-0 bg-black bg-opacity-10" style={{zIndex:1}}></div>
       <AnimatedSection>
         <div className="relative z-10">
-          <h1 className="text-4xl lg:text-5xl font-extrabold mb-6 drop-shadow-lg" style={{color: '#fff', fontWeight: 900, textShadow: '0 2px 8px rgba(0,0,0,0.25)'}}>
+          <h1 className="text-4xl lg:text-5xl font-extrabold mb-6 drop-shadow-lg" style={{color: '#fff', fontWeight: 900, textShadow: '0 4px 16px rgba(0,0,0,0.35)'}}>
             Quality & Certification
           </h1>
-          <p className="text-xl max-w-3xl mx-auto drop-shadow font-bold" style={{color: '#fff', fontWeight: 800, textShadow: '0 2px 8px rgba(0,0,0,0.18)'}}>
+          <p className="text-xl max-w-3xl mx-auto drop-shadow font-bold" style={{color: '#fff', fontWeight: 800, textShadow: '0 2px 8px rgba(0,0,0,0.28)'}}>
             Meeting international standards with comprehensive quality assurance and certifications
           </p>
         </div>
@@ -36,7 +36,7 @@ const QualityPage = () => (
         </AnimatedSection>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          {['FSSAI', 'HALAL', 'FDA', 'KOSHER', 'ISI MARK'].map((cert, index) => (
+          {['FSSAI', 'HALAL', 'FDA', 'KOSHER', 'ISO MARK', 'FSSC 22000'].map((cert, index) => (
             <AnimatedSection key={index} delay={index * 100}>
               <div className="text-center p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all">
                 <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">

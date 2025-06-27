@@ -308,7 +308,7 @@ export default function HomePage() {
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {['FSSAI', 'HALAL', 'FDA', 'KOSHER', 'ISI MARK'].map((cert, index) => (
+            {['FSSAI', 'HALAL', 'FDA', 'KOSHER', 'ISO MARK', 'FSSC 22000'].map((cert, index) => (
               <div key={index} className="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-all">
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Globe className="w-8 h-8 text-green-600" />
