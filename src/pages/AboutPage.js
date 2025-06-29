@@ -174,7 +174,7 @@ const AboutPage = () => {
       </div>
 
       {/* Mission, Vision, Values through Team Section with unified background */}
-      <div style={{ backgroundColor: '#FFFCEB' }}>
+      <div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <AnimatedSection>
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-12 text-center">
@@ -203,7 +203,7 @@ const AboutPage = () => {
       </div>
 
       {/* Background & Operations */}
-      <div className="py-16" style={{ backgroundColor: '#FFFCEB' }}>
+      <div className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-16">
@@ -218,7 +218,7 @@ const AboutPage = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <AnimatedSection>
-              <div className="p-8 rounded-2xl" style={{ backgroundColor: '#FFFCEB' }}>
+              <div className="p-8 rounded-2xl">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">Our Background</h3>
                 <p className="text-gray-600 leading-relaxed mb-4">
                   We work closely with reliable manufacturers and farmers to ensure that only the finest fruits are selected, supporting sustainable and ethical practices. Through our extensive network, we provide high-quality, preservative-free mango pulp and other fruit pulps.
@@ -230,7 +230,7 @@ const AboutPage = () => {
             </AnimatedSection>
 
             <AnimatedSection delay={200}>
-              <div className="p-8 rounded-2xl" style={{ backgroundColor: '#FFFCEB' }}>
+              <div className="p-8 rounded-2xl">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">Our Operations</h3>
                 <p className="text-gray-600 leading-relaxed mb-4">
                   At LUQI HARVEST, the entire process from farm to finished product is carefully managed. We work closely with local farmers, promoting sustainable agricultural practices and ensuring fair trade.
@@ -245,7 +245,7 @@ const AboutPage = () => {
       </div>
 
       {/* Team Section */}
-      <div style={{ backgroundColor: '#FFFCEB', width: '100%' }}>
+      <div style={{ width: '100%' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <AnimatedSection>
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-12 text-center">
@@ -281,7 +281,7 @@ const AboutPage = () => {
       </div>
 
       {/* Extend background color below team section to reach green footer */}
-      <div style={{ backgroundColor: '#FFFCEB', height: '80px', width: '100%' }}></div>
+      <div style={{ height: '80px', width: '100%' }}></div>
 
       {/* Call to Action */}
       <AnimatedSection>
