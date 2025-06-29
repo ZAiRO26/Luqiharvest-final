@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import AnimatedSection from "../AnimatedSection";
 import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Helmet } from "react-helmet";
 
 const ContactPage = () => {
   useEffect(() => {
@@ -38,6 +39,20 @@ const ContactPage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Contact LUQI HARVEST - Get in Touch</title>
+        <meta name="description" content="Contact LUQI HARVEST for inquiries about our premium fruit products, export services, or partnership opportunities. We're here to help!" />
+        <meta name="keywords" content="contact, LUQI HARVEST, fruit exporter, inquiry, partnership, India" />
+        <meta property="og:title" content="Contact LUQI HARVEST - Get in Touch" />
+        <meta property="og:description" content="Contact LUQI HARVEST for inquiries about our premium fruit products, export services, or partnership opportunities. We're here to help!" />
+        <meta property="og:image" content="/Contact-banner.jpg" />
+        <meta property="og:url" content="https://luqi-harvest.com/contact" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact LUQI HARVEST - Get in Touch" />
+        <meta name="twitter:description" content="Contact LUQI HARVEST for inquiries about our premium fruit products, export services, or partnership opportunities. We're here to help!" />
+        <meta name="twitter:image" content="/Contact-banner.jpg" />
+      </Helmet>
       {/* Banner Image */}
       <div className="w-full py-16 md:py-24 text-center mb-12 relative" style={{
         backgroundImage: "url('/images/contactus1.jpg')",

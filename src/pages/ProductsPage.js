@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import AnimatedSection from "../AnimatedSection";
+import { Helmet } from "react-helmet";
 
 const categories = [
   { key: 'all', label: 'All Products', icon: '🛒' },
@@ -145,242 +146,258 @@ export default function ProductsPage() {
   const selectedCategory = categories.find(c => c.key === currentCategory);
 
   return (
-    <div>
-      {/* Gradient Banner/Header */}
-      <div className="w-full py-12 md:py-20 text-center" style={{
-        backgroundImage: "url('/product-banner.jpg')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-      }}>
-        <AnimatedSection>
-          <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-4">Our Premium Products</h1>
-          <p className="text-lg md:text-xl text-white mb-6">Quality & Flavor in Every Bite - Sourced from the finest farms in India</p>
-        </AnimatedSection>
-        <div className="flex justify-center">
-          <span className="inline-block bg-white bg-opacity-30 text-white font-bold text-lg md:text-xl rounded-full px-8 py-2 mb-2 shadow-lg">
-            {selectedCategory?.label}
-          </span>
+    <>
+      <Helmet>
+        <title>Our Products - LUQI HARVEST | Premium Fruit Pulps, Juices & More</title>
+        <meta name="description" content="Explore LUQI HARVEST's wide range of premium fruit pulps, juices, concentrates, and vegetables for export and domestic markets." />
+        <meta name="keywords" content="products, fruit pulp, mango, guava, pineapple, juice, concentrate, vegetables, LUQI HARVEST" />
+        <meta property="og:title" content="Our Products - LUQI HARVEST | Premium Fruit Pulps, Juices & More" />
+        <meta property="og:description" content="Explore LUQI HARVEST's wide range of premium fruit pulps, juices, concentrates, and vegetables for export and domestic markets." />
+        <meta property="og:image" content="/product-banner.jpg" />
+        <meta property="og:url" content="https://luqi-harvest.com/products" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Our Products - LUQI HARVEST | Premium Fruit Pulps, Juices & More" />
+        <meta name="twitter:description" content="Explore LUQI HARVEST's wide range of premium fruit pulps, juices, concentrates, and vegetables for export and domestic markets." />
+        <meta name="twitter:image" content="/product-banner.jpg" />
+      </Helmet>
+      <div>
+        {/* Gradient Banner/Header */}
+        <div className="w-full py-12 md:py-20 text-center" style={{
+          backgroundImage: "url('/product-banner.jpg')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}>
+          <AnimatedSection>
+            <h1 className="text-3xl md:text-5xl font-extrabold text-white mb-4">Our Premium Products</h1>
+            <p className="text-lg md:text-xl text-white mb-6">Quality & Flavor in Every Bite - Sourced from the finest farms in India</p>
+          </AnimatedSection>
+          <div className="flex justify-center">
+            <span className="inline-block bg-white bg-opacity-30 text-white font-bold text-lg md:text-xl rounded-full px-8 py-2 mb-2 shadow-lg">
+              {selectedCategory?.label}
+            </span>
+          </div>
         </div>
-      </div>
 
-      {/* Category Tabs with Icons, always visible */}
-      <div className="flex flex-wrap justify-center gap-2 mt-[-1.5rem] mb-8 relative z-10">
-        {categories.map(cat => {
-          const to = cat.key === 'all' ? '/products' : `/products/${cat.key}`;
-          const isActive = currentCategory === cat.key;
-          return (
-            <Link
-              key={cat.key}
-              to={to}
-              className={`flex items-center gap-2 px-4 py-2 rounded-full font-semibold text-base shadow transition-all focus:outline-none ${
-                isActive
-                  ? 'bg-green-500 text-white scale-105 shadow-lg'
-                  : 'bg-gray-100 text-gray-700 hover:bg-green-100'
-              }`}
-            >
-              <span className="text-xl">{cat.icon}</span>
-              {cat.label}
-            </Link>
-          );
-        })}
-      </div>
-
-      {/* Product Grid */}
-      <div className="max-w-7xl mx-auto px-4 pb-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {currentProducts.map((product, idx) => {
-            let detailLink = null;
-            // Fruits
-            if (currentCategory === 'fruits' || (currentCategory === 'all' && products['fruits'].some(f => f.name === product.name))) {
-              switch (product.name) {
-                case 'Alphanso Mango':
-                  detailLink = '/products/fruit-detail/alphonso-mango';
-                  break;
-                case 'Totapuri Mango':
-                  detailLink = '/products/fruit-detail/totapuri-mango';
-                  break;
-                case 'Kesar Mango':
-                  detailLink = '/products/fruit-detail/kesar-mango';
-                  break;
-                case 'Pink/White Guava':
-                  detailLink = '/products/fruit-detail/guava';
-                  break;
-                case 'Sapota(Chikku)':
-                  detailLink = '/products/fruit-detail/sapota';
-                  break;
-                case 'Jackfruit':
-                  detailLink = '/products/fruit-detail/jackfruit';
-                  break;
-                case 'Pineapple':
-                  detailLink = '/products/fruit-detail/pineapple';
-                  break;
-                default:
-                  detailLink = null;
-              }
-            }
-            // Vegetables
-            else if (currentCategory === 'vegetables' || (currentCategory === 'all' && products['vegetables'].some(f => f.name === product.name))) {
-              switch (product.name) {
-                case 'Gherkins':
-                  detailLink = '/products/vegetables/gherkins';
-                  break;
-                case 'Baby Corn':
-                  detailLink = '/products/vegetables/baby-corn';
-                  break;
-                case 'Tomato Paste':
-                  detailLink = '/products/vegetables/tomato-paste';
-                  break;
-                case 'Tamarind Paste':
-                  detailLink = '/products/vegetables/tamarind-paste';
-                  break;
-                case 'Ginger Paste':
-                  detailLink = '/products/vegetables/ginger-paste';
-                  break;
-                case 'Garlic Paste':
-                  detailLink = '/products/vegetables/garlic-paste';
-                  break;
-                case 'Green Chilly Paste':
-                  detailLink = '/products/vegetables/green-chilly-paste';
-                  break;
-                case 'Red Chilly Paste':
-                  detailLink = '/products/vegetables/red-chilly-paste';
-                  break;
-                default:
-                  detailLink = null;
-              }
-            }
-            // Juice Commodities
-            else if (currentCategory === 'juice-commodities' || (currentCategory === 'all' && products['juice-commodities'].some(f => f.name === product.name))) {
-              switch (product.name) {
-                case 'Mango Juice':
-                  detailLink = '/products/juice-commodities/mango-juice';
-                  break;
-                case 'Guava Juice':
-                  detailLink = '/products/juice-commodities/guava-juice';
-                  break;
-                case 'Lemon Juice':
-                  detailLink = '/products/juice-commodities/lemon-juice';
-                  break;
-                case 'Pineapple Juice':
-                  detailLink = '/products/juice-commodities/pineapple-juice';
-                  break;
-                case 'Lychee Juice':
-                  detailLink = '/products/juice-commodities/lychee-juice';
-                  break;
-                default:
-                  detailLink = null;
-              }
-            }
+        {/* Category Tabs with Icons, always visible */}
+        <div className="flex flex-wrap justify-center gap-2 mt-[-1.5rem] mb-8 relative z-10">
+          {categories.map(cat => {
+            const to = cat.key === 'all' ? '/products' : `/products/${cat.key}`;
+            const isActive = currentCategory === cat.key;
             return (
-            <div
-              key={idx}
-              className="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden"
-            >
-                {detailLink ? (
-                  <Link to={detailLink} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-48 object-contain bg-white cursor-pointer"
-                    />
-                  </Link>
-                ) : (
-              <img
-                src={product.image}
-                alt={product.name}
-                    className="w-full h-48 object-contain bg-white"
-              />
-                )}
-              <div className="p-4">
-                  <h3 className="text-lg font-bold mb-2">
-                    {detailLink ? (
-                      <Link to={detailLink} className="hover:underline text-black" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                        {product.name}
-                      </Link>
-                    ) : (
-                      product.name
-                    )}
-                  </h3>
-                <p className="text-gray-600 mb-4">{product.description}</p>
-                  {detailLink ? (
-                    <Link
-                      to={detailLink}
-                      className="bg-orange-600 text-white px-4 py-2 rounded hover:bg-orange-700 transition inline-block"
-                      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                    >
-                      View Details
-                    </Link>
-                  ) : (
-                <button
-                  className="bg-orange-600 text-white px-4 py-2 rounded hover:bg-orange-700 transition"
-                  onClick={() => navigate('/contact')}
-                >
-                  Get Quote
-                </button>
-                  )}
-                </div>
-              </div>
+              <Link
+                key={cat.key}
+                to={to}
+                className={`flex items-center gap-2 px-4 py-2 rounded-full font-semibold text-base shadow transition-all focus:outline-none ${
+                  isActive
+                    ? 'bg-green-500 text-white scale-105 shadow-lg'
+                    : 'bg-gray-100 text-gray-700 hover:bg-green-100'
+                }`}
+              >
+                <span className="text-xl">{cat.icon}</span>
+                {cat.label}
+              </Link>
             );
           })}
         </div>
-      </div>
 
-      {/* --- Long Scrollable Sections Below --- */}
-      <div className="bg-amber-50">
-      {/* Packaging Options Section */}
-      <div className="max-w-7xl mx-auto px-4 pb-16">
-        <div className="py-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">Packaging Options</h2>
-          <p className="text-lg text-gray-600 mb-10 text-center max-w-2xl mx-auto">We offer a variety of packaging solutions to suit your needs, ensuring product freshness and safety from our facility to your destination.</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center">
-              <DrumIcon />
-              <h3 className="text-xl font-semibold mb-2">Aseptic Drums</h3>
-              <p className="text-gray-600 text-center mb-2">220/215 kg, 100% sterile, ideal for export and long shelf life.</p>
-              <span className="inline-block bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">Most Popular</span>
-            </div>
-            <div className="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center">
-              <CanIcon />
-              <h3 className="text-xl font-semibold mb-2">OTS Cans</h3>
-              <p className="text-gray-600 text-center mb-2">Available in 3.1kg, 850g, 450g. Perfect for retail and food service.</p>
-              <span className="inline-block bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">Retail & Food Service</span>
-            </div>
-            <div className="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center">
-              <FrozenIcon />
-              <h3 className="text-xl font-semibold mb-2">Frozen Packaging</h3>
-              <p className="text-gray-600 text-center mb-2">IQF, blocks, and custom frozen packs for maximum freshness.</p>
-              <span className="inline-block bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Frozen Solutions</span>
+        {/* Product Grid */}
+        <div className="max-w-7xl mx-auto px-4 pb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            {currentProducts.map((product, idx) => {
+              let detailLink = null;
+              // Fruits
+              if (currentCategory === 'fruits' || (currentCategory === 'all' && products['fruits'].some(f => f.name === product.name))) {
+                switch (product.name) {
+                  case 'Alphanso Mango':
+                    detailLink = '/products/fruit-detail/alphonso-mango';
+                    break;
+                  case 'Totapuri Mango':
+                    detailLink = '/products/fruit-detail/totapuri-mango';
+                    break;
+                  case 'Kesar Mango':
+                    detailLink = '/products/fruit-detail/kesar-mango';
+                    break;
+                  case 'Pink/White Guava':
+                    detailLink = '/products/fruit-detail/guava';
+                    break;
+                  case 'Sapota(Chikku)':
+                    detailLink = '/products/fruit-detail/sapota';
+                    break;
+                  case 'Jackfruit':
+                    detailLink = '/products/fruit-detail/jackfruit';
+                    break;
+                  case 'Pineapple':
+                    detailLink = '/products/fruit-detail/pineapple';
+                    break;
+                  default:
+                    detailLink = null;
+                }
+              }
+              // Vegetables
+              else if (currentCategory === 'vegetables' || (currentCategory === 'all' && products['vegetables'].some(f => f.name === product.name))) {
+                switch (product.name) {
+                  case 'Gherkins':
+                    detailLink = '/products/vegetables/gherkins';
+                    break;
+                  case 'Baby Corn':
+                    detailLink = '/products/vegetables/baby-corn';
+                    break;
+                  case 'Tomato Paste':
+                    detailLink = '/products/vegetables/tomato-paste';
+                    break;
+                  case 'Tamarind Paste':
+                    detailLink = '/products/vegetables/tamarind-paste';
+                    break;
+                  case 'Ginger Paste':
+                    detailLink = '/products/vegetables/ginger-paste';
+                    break;
+                  case 'Garlic Paste':
+                    detailLink = '/products/vegetables/garlic-paste';
+                    break;
+                  case 'Green Chilly Paste':
+                    detailLink = '/products/vegetables/green-chilly-paste';
+                    break;
+                  case 'Red Chilly Paste':
+                    detailLink = '/products/vegetables/red-chilly-paste';
+                    break;
+                  default:
+                    detailLink = null;
+                }
+              }
+              // Juice Commodities
+              else if (currentCategory === 'juice-commodities' || (currentCategory === 'all' && products['juice-commodities'].some(f => f.name === product.name))) {
+                switch (product.name) {
+                  case 'Mango Juice':
+                    detailLink = '/products/juice-commodities/mango-juice';
+                    break;
+                  case 'Guava Juice':
+                    detailLink = '/products/juice-commodities/guava-juice';
+                    break;
+                  case 'Lemon Juice':
+                    detailLink = '/products/juice-commodities/lemon-juice';
+                    break;
+                  case 'Pineapple Juice':
+                    detailLink = '/products/juice-commodities/pineapple-juice';
+                    break;
+                  case 'Lychee Juice':
+                    detailLink = '/products/juice-commodities/lychee-juice';
+                    break;
+                  default:
+                    detailLink = null;
+                }
+              }
+              return (
+              <div
+                key={idx}
+                className="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden"
+              >
+                  {detailLink ? (
+                    <Link to={detailLink} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="w-full h-48 object-contain bg-white cursor-pointer"
+                      />
+                    </Link>
+                  ) : (
+                <img
+                  src={product.image}
+                  alt={product.name}
+                      className="w-full h-48 object-contain bg-white"
+                />
+                  )}
+                <div className="p-4">
+                    <h3 className="text-lg font-bold mb-2">
+                      {detailLink ? (
+                        <Link to={detailLink} className="hover:underline text-black" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                          {product.name}
+                        </Link>
+                      ) : (
+                        product.name
+                      )}
+                    </h3>
+                  <p className="text-gray-600 mb-4">{product.description}</p>
+                    {detailLink ? (
+                      <Link
+                        to={detailLink}
+                        className="bg-orange-600 text-white px-4 py-2 rounded hover:bg-orange-700 transition inline-block"
+                        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                      >
+                        View Details
+                      </Link>
+                    ) : (
+                  <button
+                    className="bg-orange-600 text-white px-4 py-2 rounded hover:bg-orange-700 transition"
+                    onClick={() => navigate('/contact')}
+                  >
+                    Get Quote
+                  </button>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* --- Long Scrollable Sections Below --- */}
+        <div className="bg-amber-50">
+        {/* Packaging Options Section */}
+        <div className="max-w-7xl mx-auto px-4 pb-16">
+          <div className="py-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">Packaging Options</h2>
+            <p className="text-lg text-gray-600 mb-10 text-center max-w-2xl mx-auto">We offer a variety of packaging solutions to suit your needs, ensuring product freshness and safety from our facility to your destination.</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center">
+                <DrumIcon />
+                <h3 className="text-xl font-semibold mb-2">Aseptic Drums</h3>
+                <p className="text-gray-600 text-center mb-2">220/215 kg, 100% sterile, ideal for export and long shelf life.</p>
+                <span className="inline-block bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">Most Popular</span>
+              </div>
+              <div className="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center">
+                <CanIcon />
+                <h3 className="text-xl font-semibold mb-2">OTS Cans</h3>
+                <p className="text-gray-600 text-center mb-2">Available in 3.1kg, 850g, 450g. Perfect for retail and food service.</p>
+                <span className="inline-block bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">Retail & Food Service</span>
+              </div>
+              <div className="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center">
+                <FrozenIcon />
+                <h3 className="text-xl font-semibold mb-2">Frozen Packaging</h3>
+                <p className="text-gray-600 text-center mb-2">IQF, blocks, and custom frozen packs for maximum freshness.</p>
+                <span className="inline-block bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Frozen Solutions</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Product Highlights Section */}
-      <div className="max-w-7xl mx-auto px-4 pb-16">
-        <div className="py-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">Why Choose LUQI HARVEST?</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center">
-              <span className="text-4xl mb-4">🥭</span>
-              <h3 className="text-xl font-semibold mb-2">Premium Fruit Selection</h3>
-              <p className="text-gray-600 text-center">Handpicked, fully ripened fruits for the best taste and nutrition.</p>
-            </div>
-            <div className="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center">
-              <span className="text-4xl mb-4">🌱</span>
-              <h3 className="text-xl font-semibold mb-2">Sustainable Practices</h3>
-              <p className="text-gray-600 text-center">Supporting local farmers and eco-friendly processing methods.</p>
-            </div>
-            <div className="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center">
-              <span className="text-4xl mb-4">🌏</span>
-              <h3 className="text-xl font-semibold mb-2">Global Export</h3>
-              <p className="text-gray-600 text-center">Supplying to USA, Europe, Middle East, and more international markets.</p>
+        {/* Product Highlights Section */}
+        <div className="max-w-7xl mx-auto px-4 pb-16">
+          <div className="py-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">Why Choose LUQI HARVEST?</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center">
+                <span className="text-4xl mb-4">🥭</span>
+                <h3 className="text-xl font-semibold mb-2">Premium Fruit Selection</h3>
+                <p className="text-gray-600 text-center">Handpicked, fully ripened fruits for the best taste and nutrition.</p>
+              </div>
+              <div className="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center">
+                <span className="text-4xl mb-4">🌱</span>
+                <h3 className="text-xl font-semibold mb-2">Sustainable Practices</h3>
+                <p className="text-gray-600 text-center">Supporting local farmers and eco-friendly processing methods.</p>
+              </div>
+              <div className="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center">
+                <span className="text-4xl mb-4">🌏</span>
+                <h3 className="text-xl font-semibold mb-2">Global Export</h3>
+                <p className="text-gray-600 text-center">Supplying to USA, Europe, Middle East, and more international markets.</p>
+              </div>
             </div>
           </div>
         </div>
+        </div>
+        {/* End of long scrollable sections */}
       </div>
-      </div>
-      {/* End of long scrollable sections */}
-    </div>
+    </>
   );
 } 
