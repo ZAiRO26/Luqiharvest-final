@@ -291,7 +291,7 @@ const BlogPage = () => {
             <div className="px-4 p-8 flex flex-col items-center justify-center text-center text-white">
               <h2 className="text-2xl md:text-3xl font-bold mb-2">Stay Ahead of the Curve</h2>
               <p className="mb-6">Subscribe to our newsletter for the latest industry updates and insights.</p>
-              <button className="bg-white text-green-600 hover:bg-green-50 font-semibold px-8 py-3 rounded-lg text-lg shadow transition-all">Subscribe Now</button>
+              <Link to="/contact" className="bg-white text-green-600 hover:bg-green-50 font-semibold px-8 py-3 rounded-lg text-lg shadow transition-all">Subscribe Now</Link>
             </div>
           </div>
         </div>

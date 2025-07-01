@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import AnimatedSection from "../AnimatedSection";
 import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import { Helmet } from "react-helmet";
+import emailjs from 'emailjs-com';
 
 const ContactPage = () => {
   useEffect(() => {
@@ -26,15 +27,34 @@ const ContactPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Thank you for your inquiry! We will contact you soon.");
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      quantity: "",
-      purpose: "",
-      message: "",
-    });
+    emailjs.send(
+      'service_1stu49r',
+      'template_yjj40bo',
+      {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        quantity: formData.quantity,
+        purpose: formData.purpose,
+        message: formData.message,
+      },
+      'JuCPJF8K1NygdcdoT'
+    ).then(
+      (result) => {
+        alert('Thank you for your inquiry! We will contact you soon.');
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          quantity: "",
+          purpose: "",
+          message: "",
+        });
+      },
+      (error) => {
+        alert('There was an error sending your message. Please try again later.');
+      }
+    );
   };
 
   return (

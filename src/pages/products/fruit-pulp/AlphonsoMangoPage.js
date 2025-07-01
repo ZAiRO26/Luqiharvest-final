@@ -1,5 +1,6 @@
 import React from "react";
 import ProductDetailLayout from "../ProductDetailLayout";
+import { Link } from "react-router-dom";
 
 const description = `Alphonso Mangoes, often called the "King of Mangoes," are prized for their deep golden color, rich creamy texture, and unparalleled sweetness. The smooth, aromatic pulp makes it a perfect ingredient for beverages, desserts, ice creams, and jams.`;
 
@@ -20,13 +21,18 @@ const uses = [
 ];
 
 const AlphonsoMangoPage = () => (
-  <ProductDetailLayout
-    image={process.env.PUBLIC_URL + "/images/products/AS1-Alphanso Mango.jpg"}
-    name="Alphonso Mango Pulp"
-    description={description}
-    benefits={benefits}
-    uses={uses}
-  />
+  <>
+    <div className="max-w-5xl mx-auto w-full pt-8">
+      <Link to="/products" className="text-green-600 hover:underline font-semibold mb-6 inline-block">← Back to Products</Link>
+    </div>
+    <ProductDetailLayout
+      image={process.env.PUBLIC_URL + "/images/products/AS1-Alphanso Mango.jpg"}
+      name="Alphonso Mango Pulp"
+      description={description}
+      benefits={benefits}
+      uses={uses}
+    />
+  </>
 );
 
 export default AlphonsoMangoPage; 
