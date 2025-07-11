@@ -21,7 +21,7 @@ export default function Footer() {
               <a href="https://www.facebook.com/share/1CFbUHTfK9/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-[#3b5998] transition-colors">
                 <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
               </a>
-              <a href="https://www.instagram.com/luqi_harvest?utm_source=qr&igsh=dmI4eXpuYmlubWFw" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-[#E1306C] transition-colors">
+              <a href="https://www.instagram.com/luqiharvest/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-[#E1306C] transition-colors">
                 <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
               </a>
               <a href="https://www.linkedin.com/company/luqi-harvest/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-[#0077b5] transition-colors">
@@ -30,7 +30,7 @@ export default function Footer() {
               <a href="https://x.com/LuqiHarvest" target="_blank" rel="noopener noreferrer" aria-label="X" className="hover:text-black transition-colors">
                 <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M4 4L20 20M20 4L4 20"/></svg>
               </a>
-              <a href="https://youtube.com/@luqi_harvest?si=cYyWkmuJWN3t-jFR" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="hover:text-[#FF0000] transition-colors">
+              <a href="https://www.youtube.com/@luqiharvest" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="hover:text-[#FF0000] transition-colors">
                 <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><polygon points="10,8 16,12 10,16 10,8" fill="#FF0000"/></svg>
               </a>
             </div>
@@ -77,7 +77,7 @@ export default function Footer() {
                 <span>
                   <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><polyline points="22,6 12,13 2,6"/></svg>
                 </span>
-                <span>luqiharvestindia@gmail.com</span>
+                <span>contact@luqiharvest.com</span>
               </div>
             </div>
           </div>

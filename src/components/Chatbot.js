@@ -49,7 +49,7 @@ const Chatbot = () => {
       reactions: ['🏆', '✅', '👍']
     },
     'order': {
-      text: `Placing an order with Luqi Harvest is quick and simple! You can choose any of the following options:\n- Call or WhatsApp us at +91 81224 29668 for instant assistance.\n- Email your order details to luqiharvestindia@gmail.com\n- Direct Message us on our social media pages: Facebook, Instagram, LinkedIn\n- Submit an Inquiry via our website.\n- For bulk/export orders, our sales team will guide you through the product selection, packaging options, documentation, and delivery process.\nOnce we receive your order request, our team will share a proforma invoice, confirm stock availability, and schedule production or dispatch as per your needs.`,
+      text: `Placing an order with Luqi Harvest is quick and simple! You can choose any of the following options:\n- Call or WhatsApp us at +91 81224 29668 for instant assistance.\n- Email your order details to contact@luqiharvest.com\n- Direct Message us on our social media pages: Facebook, Instagram, LinkedIn\n- Submit an Inquiry via our website.\n- For bulk/export orders, our sales team will guide you through the product selection, packaging options, documentation, and delivery process.\nOnce we receive your order request, our team will share a proforma invoice, confirm stock availability, and schedule production or dispatch as per your needs.`,
       followUp: "Would you like to know about delivery options or bulk export services?",
       reactions: ['📞', '💬', '👍']
     },
@@ -124,7 +124,7 @@ const Chatbot = () => {
       reactions: ['📱', '👍']
     },
     'contact': {
-      text: `You can contact LUQI HARVEST through multiple channels:\n\n📞 Phone & WhatsApp: +91 81224 29668\n📧 Email: luqiharvestindia@gmail.com\n🌐 Website: Submit an inquiry through our contact form\n\nSocial Media:\n- Facebook: Luqi Harvest\n- Instagram: Luqi Harvest\n- LinkedIn: Luqi Harvest\n- X.com: Luqi Harvest\n\nFor instant assistance, call or WhatsApp us. For detailed inquiries, email us or use our website contact form. We typically respond within 24 hours! 😊`,
+      text: `You can contact LUQI HARVEST through multiple channels:\n\n📞 Phone & WhatsApp: +91 81224 29668\n📧 Email: contact@luqiharvest.com\n🌐 Website: Submit an inquiry through our contact form\n\nSocial Media:\n- Facebook: Luqi Harvest\n- Instagram: Luqi Harvest\n- LinkedIn: Luqi Harvest\n- X.com: Luqi Harvest\n\nFor instant assistance, call or WhatsApp us. For detailed inquiries, email us or use our website contact form. We typically respond within 24 hours! 😊`,
       followUp: "Would you like to know about our products or how to place an order?",
       reactions: ['📞', '📧', '👍']
     },

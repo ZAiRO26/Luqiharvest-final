@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import AnimatedSection from "../AnimatedSection";
 import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import { Helmet } from "react-helmet";
-import emailjs from 'emailjs-com';
 
 const ContactPage = () => {
   useEffect(() => {
@@ -27,34 +26,37 @@ const ContactPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    emailjs.send(
-      'service_1stu49r',
-      'template_yjj40bo',
-      {
+    fetch('/sendContactEmail.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
         quantity: formData.quantity,
         purpose: formData.purpose,
         message: formData.message,
-      },
-      'JuCPJF8K1NygdcdoT'
-    ).then(
-      (result) => {
-        alert('Thank you for your inquiry! We will contact you soon.');
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          quantity: "",
-          purpose: "",
-          message: "",
-        });
-      },
-      (error) => {
+      })
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.status === 'success') {
+          alert('Thank you for your inquiry! We will contact you soon.');
+          setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            quantity: "",
+            purpose: "",
+            message: "",
+          });
+        } else {
+          alert('There was an error sending your message. Please try again later.');
+        }
+      })
+      .catch(err => {
         alert('There was an error sending your message. Please try again later.');
-      }
-    );
+      });
   };
 
   return (
@@ -146,7 +148,7 @@ const ContactPage = () => {
                       </div>
                       <div>
                         <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
-                        <p className="text-gray-600">Support and Sales: luqiharvestindia@gmail.com</p>
+                        <p className="text-gray-600">Support and Sales: contact@luqiharvest.com</p>
                       </div>
                     </div>
 
@@ -187,7 +189,7 @@ const ContactPage = () => {
                             Facebook
                           </a>
                           <a 
-                            href="https://www.instagram.com/luqi_harvest?utm_source=qr&igsh=dmI4eXpuYmlubWFw" 
+                            href="https://www.instagram.com/luqiharvest/" 
                             target="_blank" 
                             rel="noopener noreferrer"
                             className="text-green-600 hover:text-green-700 flex items-center"
@@ -213,13 +215,13 @@ const ContactPage = () => {
                             <Twitter className="w-4 h-4 mr-2" />
                             X
                           </a>
-                          <a 
-                            href="https://youtube.com/@luqi_harvest?si=cYyWkmuJWN3t-jFR" 
-                            target="_blank" 
+                          <a
+                            href="https://www.youtube.com/@luqiharvest"
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="text-green-600 hover:text-green-700 flex items-center"
                           >
-                            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><polygon points="10,8 16,12 10,16 10,8" fill="#FF0000"/></svg>
+                            <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a2.994 2.994 0 0 0-2.112-2.12C19.228 3.5 12 3.5 12 3.5s-7.228 0-9.386.566A2.994 2.994 0 0 0 .502 6.186C0 8.344 0 12 0 12s0 3.656.502 5.814a2.994 2.994 0 0 0 2.112 2.12C4.772 20.5 12 20.5 12 20.5s7.228 0 9.386-.566a2.994 2.994 0 0 0 2.112-2.12C24 15.656 24 12 24 12s0-3.656-.502-5.814zM9.75 15.568V8.432L15.818 12 9.75 15.568z"/></svg>
                             YouTube
                           </a>
                         </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Phone, Mail, Globe } from 'lucide-react';
 
@@ -27,11 +27,61 @@ function scrollToTop() {
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
+  const contactBarRef = useRef();
+  const headerRef = useRef();
+  const lastScrollY = useRef(window.scrollY);
+  const menuRef = useRef();
+  const burgerRef = useRef();
+
+  // Auto-hide menu on outside click or route change
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const handleClick = (e) => {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(e.target) &&
+        burgerRef.current &&
+        !burgerRef.current.contains(e.target)
+      ) {
+        setMobileOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, [mobileOpen]);
+
+  // Auto-hide menu on route change
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.innerWidth <= 768) { // Only on mobile
+        if (window.scrollY > lastScrollY.current) {
+          // Scrolling down
+          if (contactBarRef.current) contactBarRef.current.style.transform = 'translateY(-100%)';
+          if (headerRef.current) headerRef.current.style.transform = 'translateY(-100%)';
+        } else {
+          // Scrolling up
+          if (contactBarRef.current) contactBarRef.current.style.transform = 'translateY(0)';
+          if (headerRef.current) headerRef.current.style.transform = 'translateY(0)';
+        }
+        lastScrollY.current = window.scrollY;
+      } else {
+        // Always show on desktop
+        if (contactBarRef.current) contactBarRef.current.style.transform = 'translateY(0)';
+        if (headerRef.current) headerRef.current.style.transform = 'translateY(0)';
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <header className="bg-white shadow-lg sticky top-0 z-50">
+    <header ref={headerRef} style={{ transition: 'transform 0.3s ease', willChange: 'transform' }} className="bg-white shadow-lg sticky top-0 z-50">
       {/* Top bar */}
-      <div className="border-b border-gray-200 py-2">
+      <div ref={contactBarRef} style={{ transition: 'transform 0.3s ease', willChange: 'transform' }} className="border-b border-gray-200 py-2">
         <div className="w-full md:w-7/10 mx-auto px-4 sm:px-6 lg:px-8" style={{maxWidth: '70%'}}>
           {/* Mobile: stack and center, Desktop: flex row */}
           <div className="flex flex-col md:flex-row md:justify-between md:items-center text-sm text-gray-600">
@@ -42,7 +92,7 @@ export default function Header() {
               </div>
               <div className="flex items-center justify-center md:justify-start mt-1 md:mt-0">
                 <Mail className="w-4 h-4 mr-1" />
-                <span>luqiharvestindia@gmail.com</span>
+                <span>contact@luqiharvest.com</span>
               </div>
             </div>
             <div className="flex items-center justify-center md:justify-end space-x-2 mt-1 md:mt-0">
@@ -63,6 +113,7 @@ export default function Header() {
               </div>
             </Link>
             <button
+              ref={burgerRef}
               className="p-2 rounded-md text-gray-600 hover:text-orange-600 hover:bg-gray-100"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Open menu"
@@ -113,7 +164,7 @@ export default function Header() {
           </nav>
         </div>
         {mobileOpen && (
-          <nav className="md:hidden border-t border-gray-200 py-4">
+          <nav ref={menuRef} className="md:hidden border-t border-gray-200 py-4">
             <div className="flex flex-col space-y-2">
               {navLinks.map(link => (
                 link.name === 'Products' ? (
